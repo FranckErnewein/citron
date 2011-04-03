@@ -69,8 +69,6 @@
 			//$(this).html(_template[template_url]( {data:data, bundle:bundle} ));
 			collection.html(_template[template_url]( {data:data} ));
 			def.resolve(collection, data);
-			$.proxy( domReady, collection);
-				
 		});
 
 		return def;
