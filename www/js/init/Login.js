@@ -34,9 +34,12 @@ function Login(node, data){
 		}
 
 		api.login(login.val(), password.val() ).done(function(){
-			console.log('log');	
+			$('#layer').fadeOut();
+
 		}).fail(function(xhr){
-			error.slideDown();
+			if(xhr.status == 404){
+				error.slideDown();
+			}
 		});
 		return false;
 	});
