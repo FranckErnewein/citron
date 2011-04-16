@@ -40,13 +40,19 @@ class API
 		try{
 			include $filePath;
 			$instance = new $className();
-			$instance->output($instance->$method());
+			$this->render($instance->$method());
 		}catch(Exception $e){
 			
 		}
 		
 		//debug($path_fragment);
 
+	}
+
+
+	public function render($data){
+		header('Content-Type: text/plain');
+		echo json_encode($data);
 	}
 
 

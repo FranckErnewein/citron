@@ -66,27 +66,11 @@ abstract class BaseApi{
 		}
 		//if message try to print it 
 		if( $message != null ){
-			$this->output( array('error'=>$message) );
+			return array('error'=>$message);
 		}
 	}
 
 
-	public function output($data){
-		//switch output according mode attribute
-		if($this->mode == 'json'){
-
-			//TODO : set application/json type myme
-			header('Content-type: text/plain');
-			echo json_encode($data);
-
-		}else if($this->mode == 'xml'){
-
-			header('Content-type: text/xml');
-			//TODO : incluse PEAR package and use XML_Serializer
-			echo '<api>xml not avaible now</api>';
-
-		}
-	}
 
 }
 

@@ -13,6 +13,18 @@
 			}
 		});
 
+		$('#lang-change').change(function(e){
+			var lang = $(this).val();
+			loadBundle(lang).done(function(){
+				node.render('template/login-form.html', 
+					{login:email.val(), password:password.val()}).done(Login);
+				$('#lang-change').val(lang);
+			});
+
+
+
+		});
+
 		
 
 		$('form', node).submit(function(){

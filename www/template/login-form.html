@@ -1,12 +1,17 @@
 <div class="ui-popup login-popup" id="connect">
-	<form id="ronnect-form" method="GET" action="api/1.php/login#user" class="xform">
+	<form id="ronnect-form" method="POST" action="login/">
 		<p>
-		<label><%= bundle.login.Login %><input type="text" name="login" /></label><br />
-		<label><%= bundle.login.Password %><input type="password" name="password" /></label><br />
+		<label><%= bundle.login.Login %><input type="text" class="api-field" name="email" value="<%= data.login %>"/></label><br />
+		<label><%= bundle.login.Password %><input type="password" class="api-field" value="<%= data.password %>" name="password" /></label><br />
 		</p>	
 		<div class="submit">
 			<input type="submit" value="<%= bundle.login.BtnConnect %>"/>
 		</div>
+		<br />
+		<select id="lang-change" name="language">
+			<option value="fr">Français</option>	
+			<option value="en">English</option>	
+		</select>
 		<div class="error">
 			<div class="code-403"><%= bundle.login.Wrong %></div>
 		</div>

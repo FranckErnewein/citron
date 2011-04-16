@@ -34,7 +34,6 @@ abstract class AbstractModel
 
 	public function getFromDb($id){
 		$result = $this->select( array('id'=>$id) );
-		var_dump($result);
 		$this->import(mysql_fetch_object($result));
 	}
 
@@ -80,6 +79,15 @@ abstract class AbstractModel
 			$clone[$field] = $value;
 		}
 		return $clone;
+	}
+
+	protected function copyField($sqlFetch, $fields){
+		$line = array(); 
+		for($i=0; $i<count($fields); $i++){
+			$field = $fields[$i];
+			$line[$field] = $sqlFetch->$field; 
+		}
+		return $line;
 	}
 
 

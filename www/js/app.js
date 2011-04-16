@@ -1,42 +1,57 @@
-var bundle = {
-	login:{
-		Login:'Login',
-		Password:'Mots de passe',
-		Wrong:'Mauvais login ou mots de passe',
-		BtnConnect:'Connexion'
-	}
-};
+
+if(!console)var console = {log:function(){}};
+var bundle = {};
+function loadBundle(lang){
+	return $.ajax({
+		url:config.BASE_API + 'bundle',
+		dataType:'json',
+		data: (lang) ? {lang:lang} : null,
+		success:function(xhr){
+			bundle = xhr;	
+		}
+	});
+}
 
 var events = {
-	LOGIN_REQUIRE:'LOGIN_REQUIRE'
+	LOGIN_REQUIRE:'LOGIN_REQUIRE',
+	RENDER_LAYOUT:'RENDER_LAYOUT'
+}
+
+var config = {
+	COOKIE_DAY:7,
+	BASE_API:'api.php/'
 }
 
 
-var api = {
-	BASE:'api.php/',
-	login:function(login, password){
-		return $.ajax({
-			url: this.BASE + 'login',
-			type:'POST',
-			data:{login:login, password:password}
-		});
-	}
-}
+var component = {};
 
 var dom;
+var data;
 
 $(document).ready(function(){
 
 	dom = {
-		popupLayer:$('#layer')
+		popup:{
+			layer:$('#layer'),
+			content:$('#login-form')
+		},
+		userBar:$('#user')
 	}
+
+	loadBundle().done(function(apiBundle){
+
+		dom.popup.content.render('template/login-form.html', {}).done(component.Login);
+		dom.popup.layer.fadeIn();
+
+	});
+
 	//login form
 
-	$('#login-form').render('template/login-form.html', {}).done(Login);
-	dom.popupLayer.fadeIn();
-
+		
 });
 
-$(document).bind(events.LOGIN_REQUIRE, function(){
 
+$(document).bind(events.LOGIN_REQUIRE, function(){
+	$('#login-form').render('template/login-form.html', {}).done(component.Login);
+	dom.popup.layer.fadeIn();
 });

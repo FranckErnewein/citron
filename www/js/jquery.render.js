@@ -1,6 +1,6 @@
+(function($){
 	var _template = {};
 	var _bundle = {};
-(function($){
 
 
 	
@@ -34,6 +34,7 @@
 		}else{
 			return $.ajax({
 				url:url,
+				cache:false,
 				success:function(xhr){
 					_template[url] = createTemplateFunction(xhr);
 				}

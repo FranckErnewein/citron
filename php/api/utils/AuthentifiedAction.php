@@ -6,24 +6,19 @@ include_once MODEL_PATH . 'User.php';
 abstract class AuthentifiedAction extends BaseApi
 {
 
-	public function __construct($mode){
+	public function __construct(){
 
-		parent::__construct($mode);
-		
 		//if not logged die on 403
 		if(!$_SESSION['user']){
 			$this->error(403);
 		}
-		
-		$this->user = new User($_SESSION['user']);	
+
+		$model = new User();	
+		$this->user = $model->getById($_SESSION['user']);
 
 	}
 
 
-	public function query($SQL)
-	{
-		return mysql_query(mysql_real_escape_string($sql));
-	}
 
 }
 
