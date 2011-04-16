@@ -14,6 +14,7 @@ abstract class AbstractModel
 	{
 		
 		$this->connection = mysql_connect(DATABASE_SERVER, DATABASE_USER, DATABASE_PASSWORD);
+		mysql_set_charset('utf8', $this->connection);
 		$this->database = mysql_select_db(DATABASE_NAME, $this->connection); 
 
 	}

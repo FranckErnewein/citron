@@ -52,6 +52,7 @@ class API
 
 	public function render($data){
 		header('Content-Type: text/plain');
+		//json_encode($data);
 		echo json_encode($data);
 	}
 
