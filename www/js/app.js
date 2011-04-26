@@ -13,6 +13,7 @@ function loadBundle(lang){
 }
 
 var events = {
+	LOGIN:'LOGIN',
 	LOGIN_REQUIRE:'LOGIN_REQUIRE',
 	RENDER_LAYOUT:'RENDER_LAYOUT'
 }
@@ -23,11 +24,11 @@ var config = {
 }
 
 
-var component = {};
 
 var dom;
 var data;
 
+/*
 $(document).ready(function(){
 
 	dom = {
@@ -55,3 +56,4 @@ $(document).bind(events.LOGIN_REQUIRE, function(){
 	$('#login-form').render('template/login-form.html', {}).done(component.Login);
 	dom.popup.layer.fadeIn();
 });
+*/

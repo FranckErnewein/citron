@@ -1,5 +1,7 @@
+<% if(data && data.email) { %>
 <div>
 	<%= bundle.user.LogAs +' '+ data.email %> 
 	<a href="#logout"><%= bundle.user.Logout %></a>
 
 </div>
+<% } %> 

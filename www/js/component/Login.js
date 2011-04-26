@@ -1,6 +1,19 @@
-(function(_package){
+(function(pack){
 
-	function Login(node, data){
+	function Login(){
+
+		var self = this;
+		$(document).bind(events.LOGIN_REQUIRE, function(){
+			self.node.fadeIn();	
+		});
+	
+	}
+	utils.inherits(Login, pack.AbstractComponent );
+
+	Login.prototype.onDomReady = function(){
+
+		var self = this;
+		var node = this.node;
 
 		var email = $('input[name=email]', node);
 		var password = $('input[name=password]', node);
@@ -16,8 +29,7 @@
 		$('#lang-change').change(function(e){
 			var lang = $(this).val();
 			loadBundle(lang).done(function(){
-				node.render('template/login-form.html', 
-					{login:email.val(), password:password.val()}).done(Login);
+				self.render( {login:email.val(), password:password.val()});
 				$('#lang-change').val(lang);
 			});
 
@@ -51,9 +63,10 @@
 				$.cookie('login', email.val() , {expires:config.COOKIE_DAY});
 				$.cookie('password', data.password, {expires:config.COOKIE_DAY});
 				//console.log(data);
-				dom.userBar.render('template/user-bar.html', data).done(component.UserBar);
 				
-				dom.popup.layer.fadeOut();
+				console.log(this);
+				node.trigger(events.LOGIN, data);
+				node.fadeOut();
 
 			}).fail(function(xhr){
 				if(xhr.status == 403){
@@ -65,6 +78,7 @@
 
 	}
 
-	_package.Login = Login;
+
+	pack.Login = Login;
 	
 })(component);

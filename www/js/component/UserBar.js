@@ -1,19 +1,34 @@
-(function(_package){
+(function(pack){
 
- 	function UserBar(node, data){
+ 	function UserBar(){
 
-		$('a', node).click(function(){
-			$(this).apiLink().done(function(){
+		var self = this;
 
-				node.empty();
-				node.trigger(events.LOGIN_REQUIRE);
-
-			});
+		
+		$(document).bind(events.LOGIN, function(e, data){
+			self.render(data);
 		});
+
 
 	}
 
+	utils.inherits(UserBar, pack.AbstractComponent );
 
- 	_package.UserBar = UserBar;
+
+	UserBar.prototype.onDomReady = function(){
+		var self = this;
+
+		$('a', this.node).click(function(){
+			$(this).apiLink().done(function(){
+
+				self.render({});
+				self.node.trigger(events.LOGIN_REQUIRE);
+
+			});
+		});
+	}
+
+
+ 	pack.UserBar = UserBar;
 
  })(component);
