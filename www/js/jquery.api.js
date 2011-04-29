@@ -4,13 +4,11 @@
 
 
 	$.fn.apiLink = function(data){
-		return $.ajax({
-			dataType:'json',
-			url:config.BASE_API + this.attr('href').replace('#', ''),
-		});
+		return utils.api( this.attr('href').replace('#', '') )
 	}
 
 	$.fn.apiForm = function(){
+
 
 		var data = {};
 		$(API_FORM_SELECTOR).each(function(){
@@ -18,12 +16,8 @@
 
 		});
 
-		return $.ajax({
-			dataType:'json',
-			url:config.BASE_API + this.attr('action'),
-			type:this.attr('method'),
-			data:data
-		});
+		return utils.api( this.attr('action'), data, this.attr('method') )
+
 	}
 
 
