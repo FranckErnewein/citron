@@ -66,29 +66,37 @@ if(!component) var component = {};
 	}
 
 	AbstractComponent.prototype.createTemplateFunction = function(str){
-			this.templateFunction = new Function(
-				"obj",
-				"var p=[],print=function(){p.push.apply(p,arguments);};" +
+			try{
+				this.templateFunction = new Function(
+					"obj",
+					"var p=[],print=function(){p.push.apply(p,arguments);};" +
 
-				"with(obj){p.push('" +
-					 str
-					.replace(/[\r\t\n]/g, " ")
-					.split("<%").join("\t")
-					.replace(/((^|%>)[^\t]*)'/g, "$1\r")
-					.replace(/\t=(.*?)%>/g, "',$1,'")
-					.split("\t").join("');")
-					.split("%>").join("p.push('")
-					.split("\r").join("\\'")
+					"with(obj){p.push('" +
+						 str
+						.replace(/[\r\t\n]/g, " ")
+						.split("<%").join("\t")
+						.replace(/((^|%>)[^\t]*)'/g, "$1\r")
+						.replace(/\t=(.*?)%>/g, "',$1,'")
+						.split("\t").join("');")
+						.split("%>").join("p.push('")
+						.split("\r").join("\\'")
 
-				 + "');}return p.join('');");
+					 + "');}return p.join('');");
+			}catch(e){
+				throw new Error('template compilation error : \n'+str);
+			}
 	};
 
 	AbstractComponent.prototype.initChildren = function(){
 		var self = this;
 		$('['+pack.config.ATTRIBUTE+']', this.node).each(function(){
-			var cp = new pack[$(this).attr(pack.config.ATTRIBUTE)]($(this));
-			cp.init( $(this) );
-			self.children.push(cp);
+			try{
+				var cp = new pack[$(this).attr(pack.config.ATTRIBUTE)]($(this));
+				cp.init( $(this) );
+				self.children.push(cp);
+			}catch(e){
+				throw new Error('Unable to create component ' + $(this).attr(pack.config.ATTRIBUTE));
+			}
 		});
 	}
 
