@@ -11,17 +11,14 @@ class Dictonary extends AbstractModel
 				';
 
 		$result = mysql_query($sql);
-		$currentNameSpace = '';
 
 		$bundle = array();
 		while($row = mysql_fetch_object($result)){
-			
-			if($row->namespace != $currentNameSpace){
-				$bundle[$row->namespace] = array();	
-				$currentNameSpace = $row->namespace;
 
+			if( !$bundle[$row->namespace] ){
+				$bundle[$row->namespace] = array();	
 			}
-			$bundle[$currentNameSpace][$row->key] = $row->value;	
+			$bundle[$row->namespace][$row->key] = $row->value;	
 
 		}
 
