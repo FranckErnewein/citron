@@ -17,6 +17,10 @@
 
 		var email = $('input[name=email]', node);
 		var password = $('input[name=password]', node);
+		var autolog = $('input[name=autolog]', node);
+		autolog.change(function(){
+			$.cookie('autolog', autolog.is(':checked') , {expires:config.COOKIE_DAY});
+		});
 		var fields = $('input[name=password], input[name=email]', node);
 		var error = $('.error', node).hide();
 
@@ -29,7 +33,7 @@
 		$('#lang-change').change(function(e){
 			var lang = $(this).val();
 			loadBundle(lang).done(function(){
-				self.render( {login:email.val(), password:password.val()});
+				self.render( {email:email.val(), password:password.val()});
 				$('#lang-change').val(lang);
 			});
 
@@ -60,8 +64,9 @@
 			}
 
 			$(this).apiForm().done(function(data){
-				$.cookie('login', email.val() , {expires:config.COOKIE_DAY});
-				$.cookie('password', data.password, {expires:config.COOKIE_DAY});
+				$.cookie('email', data.email , {expires:config.COOKIE_DAY});
+				$.cookie('password', password.val(), {expires:config.COOKIE_DAY});
+			
 				//console.log(data);
 				
 				console.log(this);
@@ -75,6 +80,9 @@
 			});
 			return false;
 		});
+		if($.cookie('autolog') == 'true' || $.cookie('autolog') == true){
+			$('form').submit();
+		}
 
 	}
 
