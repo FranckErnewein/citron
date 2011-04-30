@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Mer 27 Avril 2011 à 01:36
+-- Généré le : Sam 30 Avril 2011 à 11:24
 -- Version du serveur: 5.0.41
 -- Version de PHP: 5.2.6
 
@@ -94,7 +94,7 @@ CREATE TABLE `demand` (
 	  `id` int(32) NOT NULL auto_increment,
 	  `user_id` int(32) NOT NULL,
 	  `reference` varchar(64) collate utf8_unicode_ci NOT NULL,
-	  `creation_data` datetime NOT NULL,
+	  `creation_date` datetime NOT NULL,
 	  `last_update` datetime NOT NULL,
 	  `end_date` datetime NOT NULL,
 	  `title` varchar(128) collate utf8_unicode_ci NOT NULL,
@@ -103,13 +103,15 @@ CREATE TABLE `demand` (
 	  `x` double NOT NULL,
 	  `y` double NOT NULL,
 	  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `demand`
 --
 
 INSERT INTO `demand` VALUES(1, 2, 'REF345', '2011-03-20 21:17:20', '2011-03-20 21:17:31', '2011-06-30 00:00:00', 'Village Vacances dans les Landes', 'Nantes', '44000', 0, 0);
+INSERT INTO `demand` VALUES(2, 2, 'RF453', '2011-04-29 21:34:23', '2011-04-29 21:34:26', '2011-07-30 21:34:30', 'Chantier de la Garenne colombe', 'Paris', '92300', 0, 0);
+INSERT INTO `demand` VALUES(3, 1, '34567', '2011-04-29 21:35:19', '2011-04-29 21:35:22', '2011-04-30 21:35:26', 'Les bosses rouges', 'Carnon', '34280', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,7 @@ CREATE TABLE `dictionary` (
 	  `key` varchar(40) collate utf8_unicode_ci NOT NULL,
 	  `value` text collate utf8_unicode_ci NOT NULL,
 	  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
 -- Contenu de la table `dictionary`
@@ -142,6 +144,10 @@ INSERT INTO `dictionary` VALUES(9, 'en', 'login', 'BtnConnect', 'Connect');
 INSERT INTO `dictionary` VALUES(10, 'en', 'user', 'Logout', 'Logout');
 INSERT INTO `dictionary` VALUES(11, 'fr', 'user', 'LogAs', 'Connecté en tant que');
 INSERT INTO `dictionary` VALUES(12, 'en', 'user', 'LogAs', 'Login as ');
+INSERT INTO `dictionary` VALUES(13, 'fr', 'login', 'Autolog', 'Se connecté automatiquement');
+INSERT INTO `dictionary` VALUES(14, 'en', 'login', 'Autolog', 'Autologin');
+INSERT INTO `dictionary` VALUES(15, 'fr', 'global', 'Refresh', 'Rafraichir');
+INSERT INTO `dictionary` VALUES(16, 'en', 'global', 'Refresh', 'Refresh');
 
 -- --------------------------------------------------------
 
