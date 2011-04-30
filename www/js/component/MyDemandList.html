@@ -1,6 +1,6 @@
-<form action="#demands" method="GET">
+<form action="#demands" method="GET" class="search-bar">
 	<input type="text" name="search" class="api-field" />
-	<input type="submit" />
+	<input type="submit" value="<%= bundle.global.Search  %>" />
+	<a href="#demands" class="refresher"><%= bundle.global.Refresh %></a>
 </form>
-<a href="#demands"><%= bundle.global.Refresh %></a>
-<div class="item-list" data-component="DemandListResult"></div>
+<div class="ui-item-list" data-component="DemandListResult"></div>

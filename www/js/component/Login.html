@@ -1,8 +1,8 @@
 <div class="ui-popup login-popup" id="connect">
 	<form id="ronnect-form" method="POST" action="login/">
 		<p>
-		<label><%= data.login || bundle.login.Login %><input type="text" class="api-field" name="email" value="<%= $.cookie('email') %>"/></label><br />
-		<label><%= data.password || bundle.login.Password %><input type="password" class="api-field" value="<%= $.cookie('password') %>" name="password" /></label><br />
+		<label><%= bundle.login.Login %><input type="text" class="api-field" name="email" value="<%= data.email ||  $.cookie('email') %>"/></label><br />
+		<label><%= bundle.login.Password %><input type="password" class="api-field" value="<%= data.password || $.cookie('password') %>" name="password" /></label><br />
 		<label>
 			<input type="checkbox" name="autolog" <% if($.cookie('autolog') == 'true'){%> checked="checked" <%}%>/>
 			<%= bundle.login.Autolog %>

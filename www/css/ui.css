@@ -2,3 +2,25 @@
 .ui-layer{ position:fixed;top:0;left:0; height:100%; width:100%; background:rgba(0,0,0,0.5);}
 .ui-popup{ position:absolute;top:50%;left:50%; background:#fff; } 
 
+
+
+.ui-item-list{
+	padding:0 0 5px 0;	
+}
+.ui-item-list li{
+	padding:5px 10px;		
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(235,235,235)),
+		color-stop(1, rgb(255,255,255))
+	);
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(235,235,235) 0%,
+		rgb(255,255,255) 100%
+	);
+	border-bottom:1px solid #ccc;
+	
+}
