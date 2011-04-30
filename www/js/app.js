@@ -24,6 +24,13 @@ var config = {
 }
 
 
+var context = {};
+
+$(document).bind(events.LOGIN, function(e, data){
+	context.user = data;
+});
+
+
 
 var dom;
 var data;

@@ -67,9 +67,6 @@
 				$.cookie('email', data.email , {expires:config.COOKIE_DAY});
 				$.cookie('password', password.val(), {expires:config.COOKIE_DAY});
 			
-				//console.log(data);
-				
-				console.log(this);
 				node.trigger(events.LOGIN, data);
 				node.fadeOut();
 

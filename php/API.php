@@ -38,9 +38,16 @@ class API
 		}
 	
 		try{
+			$id = array_values($id);
 			include $filePath;
 			$instance = new $className();
-			$this->render($instance->$method());
+			switch (count($id)){
+				case 0 : $this->render($instance->$method()); break;
+				case 1 : $this->render($instance->$method($id[0])); break;
+				case 2 : $this->render($instance->$method($id[0], $id[1])); break;
+				case 3 : $this->render($instance->$method($id[0], $id[1], $id[2])); break;
+
+			}
 		}catch(Exception $e){
 			
 		}

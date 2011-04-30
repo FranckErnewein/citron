@@ -7,7 +7,7 @@ if(!component) var component = {};
 	}
 
 	AbstractComponent.prototype.init = function(node, parent){
-		if(node.length != 1){
+		if(!node || node.length != 1){
 			throw new Error('node is not valid');
 		}
 		this.node = node;
@@ -15,8 +15,10 @@ if(!component) var component = {};
 		this.children = [];
 		this.parent = parent || null;
 		this.data = {};
-		this.initialized = false;
-		this.render();
+
+		if(!this.preventAutoRender){
+			this.render();
+		}
 	}
 
 	AbstractComponent.prototype.render = function(data){
@@ -41,11 +43,7 @@ if(!component) var component = {};
 	AbstractComponent.prototype.internalRender = function(){
 		console.log('RENDER', this, this.data);
 		this.node.html(this.templateFunction({data:this.data}));
-		if(!this.initialized){
-			this.initialized = true;
-			this.initChildren();
-			this.node.trigger(pack.event.INIT);
-		}
+		this.initChildren();
 		if( typeof this.onDomReady == 'function'){
 			this.onDomReady();
 		}

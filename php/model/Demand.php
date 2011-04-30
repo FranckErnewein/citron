@@ -1,11 +1,52 @@
 <?php 
 
-
-include 'AbstractModel.php';
-
-
 class Demand extends AbstractModel
 {
+
+
+	public function getList( $userId, $search=null , $datestart = null, $dateend = null ){
+
+
+		$sql = '
+			SELECT 
+				d.id, 
+				d.reference, 
+				d.creation_date, 
+				d.last_update, 
+				d.end_date, 
+				d.title, 
+				d.city, 
+				d.city_code 
+			FROM demand AS d
+			WHERE user_id = ' . mysql_real_escape_string($userId) . '
+			ORDER BY  `d`.`last_update` ASC 
+			LIMIT 0,30
+		';	
+
+		$result = mysql_query( $sql );
+			
+		$demand = array();
+
+		$i = 0;
+
+		while($row = mysql_fetch_object($result)){
+			$demand[$i] = array();
+			$demand[$i]['id'] = $row->id;
+			$demand[$i]['reference'] = $row->reference;
+			$demand[$i]['title'] = $row->title;
+			$demand[$i]['creation_date'] = $row->id;
+			$demand[$i]['last_update'] = $row->last_update;
+			$demand[$i]['end_date'] = $row->end_date;
+			$demand[$i]['city'] = $row->city;
+			$demand[$i]['city_code'] = $row->city_code;
+
+			$i++;
+		}
+
+		return $demand;
+
+		
+	}
 
 
 
@@ -54,6 +95,7 @@ class Demand extends AbstractModel
 
 }
 
+/*
 
 $d = new Demand();
 $r = json_encode($d->getById(1));
@@ -63,6 +105,6 @@ echo '<script>console.log(JSON.parse(\''.$r.'\'))</script>';
 echo '<pre>';
 print_r($d->getById(1));
 
-
+*/
 
 ?>

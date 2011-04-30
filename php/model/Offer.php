@@ -11,6 +11,7 @@ class Offer extends AbstractModel
 
 
 	public function getOfferForDemand($demand_id){
+
 		$result = mysql_query('
 			SELECT 
 				o.id,
@@ -31,7 +32,6 @@ class Offer extends AbstractModel
 		$offer = array();
 
 		while($row = mysql_fetch_object($result)){
-			echo '<pre>';
 
 			if($last_offer_id != $row->offer_id){
 				$last_offer_id = $row->offer_id;
@@ -46,7 +46,7 @@ class Offer extends AbstractModel
 			$offer[$last_offer_id]['article'][$row->article_offer_id]['last_update'] = $row->last_update;
 			$offer[$last_offer_id]['article'][$row->article_offer_id]['price'] = $row->price;
 			$offer[$last_offer_id]['article'][$row->article_offer_id]['new_name'] = $row->new_name;
-
+			
 
 		}
 
@@ -63,10 +63,5 @@ class Offer extends AbstractModel
 }
 
 
-$o = new Offer();
-$r = $o->getOfferForDemand(1); 
-
-echo '<pre>';
-print_r($r);
 
 ?>
