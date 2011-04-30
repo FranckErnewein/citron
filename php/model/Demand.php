@@ -6,6 +6,18 @@ class Demand extends AbstractModel
 
 	public function getList( $userId, $search=null , $datestart = null, $dateend = null ){
 
+		$searchClause = '';
+		if($search != null){
+			$searchClause = '
+				AND (
+					d.reference LIKE \'%'.mysql_real_escape_string($search).'%\'
+					OR d.title LIKE \'%'.mysql_real_escape_string($search).'%\'
+					OR d.city LIKE \'%'.mysql_real_escape_string($search).'%\'
+					OR d.city_code LIKE \'%'.mysql_real_escape_string($search).'%\'
+				)
+			';
+		}
+
 
 		$sql = '
 			SELECT 
@@ -19,6 +31,7 @@ class Demand extends AbstractModel
 				d.city_code 
 			FROM demand AS d
 			WHERE user_id = ' . mysql_real_escape_string($userId) . '
+			'.$searchClause.'
 			ORDER BY  `d`.`last_update` ASC 
 			LIMIT 0,30
 		';	

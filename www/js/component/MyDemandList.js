@@ -13,9 +13,18 @@
 		//FIXME : do children selector on AbstractComponent
 		$('a.refresher', this.node).click(function(){
 			$(this).apiLink().done(function(data){
-				self.children[0].render(data);
+				self.getChild(pack.DemandListResult).render(data);
 			});
 		}).click();
+
+
+		$('form', this.node).submit(function(){
+			$(this).apiForm().done(function(data){
+				self.getChild(pack.DemandListResult).render(data);
+			});
+
+			return false;
+		});
 
 	}
 

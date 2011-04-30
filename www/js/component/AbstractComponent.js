@@ -103,6 +103,14 @@ if(!component) var component = {};
 
 	}
 
+	AbstractComponent.prototype.getChild = function( _class ){
+		for(var i=0; i<this.children.length; i++){
+			if( this.children[i] instanceof _class){
+				return this.children[i];
+			}
+		}
+	}
+
 	
 
 

@@ -14,6 +14,7 @@ function loadBundle(lang){
 
 var events = {
 	LOGIN:'LOGIN',
+	LANG_CHANGE:'LANG_CHANGE',
 	LOGIN_REQUIRE:'LOGIN_REQUIRE',
 	RENDER_LAYOUT:'RENDER_LAYOUT'
 }
@@ -28,6 +29,9 @@ var context = {};
 
 $(document).bind(events.LOGIN, function(e, data){
 	context.user = data;
+});
+$(document).bind(events.LANG_CHANGE, function(e, lang){
+	context.lang = lang;
 });
 
 

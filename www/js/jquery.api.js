@@ -11,12 +11,12 @@
 
 
 		var data = {};
-		$(API_FORM_SELECTOR).each(function(){
+		$(API_FORM_SELECTOR, this).each(function(){
 			data[$(this).attr('name')] = $(this).val();
 
 		});
 
-		return utils.api( this.attr('action'), data, this.attr('method') )
+		return utils.api( this.attr('action').replace('#', ''), data, this.attr('method') )
 
 	}
 

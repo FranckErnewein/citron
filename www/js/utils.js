@@ -18,7 +18,18 @@ if(!utils) var utils = {};
 			url:config.BASE_API +url,
 			type:method || 'GET'
 		});
-		
+	}
+
+	pack.date = function(strDate){
+		var date = new Date(strDate);
+		var result;
+		console.log(context.lang);
+		if(context.lang == 'fr'){
+			result = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+		}else{
+			result = date.getMonth() + '/' + date.getDate() + '/' + date.getFullYear();
+		}
+		return result;
 	}
 
 })(utils);

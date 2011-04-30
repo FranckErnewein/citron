@@ -15,7 +15,11 @@ class ActionDemands extends AuthentifiedAction
 		}else{
 
 			$demand = new Demand();
-			return $demand->getList( $this->user['id'] );
+			if(isset($_GET['search'])){
+				return $demand->getList( $this->user['id'], $_GET['search'] );
+			}else{
+				return $demand->getList( $this->user['id'] );
+			}
 		}
 
 	}
