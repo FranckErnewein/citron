@@ -4,7 +4,7 @@
 
 
 	$.fn.apiLink = function(data){
-		return utils.api( this.attr('href').replace('#', '') )
+		return utils.api( this.attr('href').replace('#', '') );
 	}
 
 	$.fn.apiForm = function(){

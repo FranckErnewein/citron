@@ -7,8 +7,15 @@
 .ui-item-list{
 	padding:0 0 5px 0;	
 }
+.ui-item-list .icon-arrow{
+	position:absolute;	
+	top:30%;
+	right:10px;
+}
 .ui-item-list li{
-	padding:5px 10px;		
+	position:relative;	
+	cursor:pointer;
+	padding:5px 40px 5px 10px;		
 	background-image: -webkit-gradient(
 		linear,
 		left bottom,
@@ -23,4 +30,18 @@
 	);
 	border-bottom:1px solid #ccc;
 	
+}
+.ui-item-list li:hover{
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(200,200,200)),
+		color-stop(1, rgb(255,255,255))
+	);
+	background-image: -moz-linear-gradient(
+		center bottom,
+		rgb(200,200,200) 0%,
+		rgb(255,255,255) 100%
+	);
 }

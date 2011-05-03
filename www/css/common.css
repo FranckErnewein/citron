@@ -5,21 +5,47 @@
 .empty-fields{background:#ccc;}
 
 .global-content{
-	margin:0 10%;
+	margin:0 5% 10px 5%;
+}
+
+.icon-arrow{
+
 }
 
 .search-bar{
 	padding:10px;
 	border-bottom:1px solid #ccc;
 }
+.btn-add{
+	cursor:pointer;
+	margin:8px 20px;
+	float:right;
+}
 
+.advanced-search{
+	display:none;
+}
+
+.demand-list{
+	
+}
+.demand-list span{
+	float:right;	
+	font-size:12px;
+	color:#999;
+	text-shadow:0 1px 0 #fff;
+}
+.demand-list p{
+	padding-top:4px;
+	color:#666;
+}
 
 #user{
 	margin:8px 0 30px 0;
 	padding:10px;
 	float:right;
 	-webkit-border-radius:10px;
-	background:#eee;
+	background:#ddd;
 }
 
 #content{

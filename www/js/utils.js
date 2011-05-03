@@ -23,7 +23,6 @@ if(!utils) var utils = {};
 	pack.date = function(strDate){
 		var date = new Date(strDate);
 		var result;
-		console.log(context.lang);
 		if(context.lang == 'fr'){
 			result = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
 		}else{

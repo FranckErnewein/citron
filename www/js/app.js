@@ -16,13 +16,14 @@ var events = {
 	LOGIN:'LOGIN',
 	LANG_CHANGE:'LANG_CHANGE',
 	LOGIN_REQUIRE:'LOGIN_REQUIRE',
-	RENDER_LAYOUT:'RENDER_LAYOUT'
-}
+	RENDER_LAYOUT:'RENDER_LAYOUT',
+	SHOW_DEMAND:'SHOW_DEMAND'
+};
 
 var config = {
 	COOKIE_DAY:7,
 	BASE_API:'api.php/'
-}
+};
 
 
 var context = {};
