@@ -50,7 +50,45 @@
 
 #content{
 	clear:both;
-	padding:10px 0;
-	-webkit-border-radius:10px;
-	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.3);
+}
+#demand .data-field{ display:none;background:#eee; } 
+#demand .data-field-span{ display:inline-block; }
+#demand.edit-mode .data-field{ display:inline-block; }
+#demand.edit-mode .data-field-span{ display:none; }
+
+#demand h1 span, #demand h1 input,
+#demand p span, #demand p input{
+	-webkit-border-radius:5px;
+	border:1px solid #aaa;
+	display:inline-block;
+	text-align:left;
+	padding:2px 5px;
+	margin:1px;
+}
+#demand h1 span,
+#demand p span{
+	border-color:#fff;
+}
+
+#demand p {
+	font-size:14px;
+	color:#999;
+	text-align:right;
+}
+#demand p input,
+#demand p span{display:inline-block;width:170px;}
+
+#demand h1{
+	float:left;
+	padding:10px;
+	font-size:22px;
+	font-weight:bold;
+}
+#demand h1 input{width:300px;}
+
+input{
+	font-size:inherit;
+	font-family:inherit;
+	font-weight:inherit;
+	color:inherit;
 }

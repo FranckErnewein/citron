@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Serveur: localhost
--- Généré le : Sam 30 Avril 2011 à 11:24
+-- Généré le : Lun 16 Mai 2011 à 02:02
 -- Version du serveur: 5.0.41
 -- Version de PHP: 5.2.6
 
@@ -28,7 +28,7 @@ CREATE TABLE `article_need` (
 	  `freeze` tinyint(1) NOT NULL,
 	  `fixed` tinyint(1) NOT NULL,
 	  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `article_need`
@@ -37,6 +37,12 @@ CREATE TABLE `article_need` (
 INSERT INTO `article_need` VALUES(1, 1, 'Sapin diamètre (tronc 14 cm)', 46, 60, 1, 0);
 INSERT INTO `article_need` VALUES(2, 1, 'Palmier palmito', 10, 500, 0, 0);
 INSERT INTO `article_need` VALUES(3, 1, 'Radis géant de colombie', 1, 18, 0, 0);
+INSERT INTO `article_need` VALUES(4, 2, 'Rosier', 40, 30, 0, 0);
+INSERT INTO `article_need` VALUES(5, 2, 'MontroPlante', 4, 340000, 0, 0);
+INSERT INTO `article_need` VALUES(6, 3, 'Truc', 3, 45, 0, 0);
+INSERT INTO `article_need` VALUES(7, 4, 'Bananier', 5, 600, 0, 0);
+INSERT INTO `article_need` VALUES(8, 4, 'Cocotier', 56, 700, 0, 0);
+INSERT INTO `article_need` VALUES(9, 5, 'Lavande', 500, 45, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -103,7 +109,7 @@ CREATE TABLE `demand` (
 	  `x` double NOT NULL,
 	  `y` double NOT NULL,
 	  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `demand`
@@ -112,6 +118,8 @@ CREATE TABLE `demand` (
 INSERT INTO `demand` VALUES(1, 2, 'REF345', '2011-03-20 21:17:20', '2011-03-20 21:17:31', '2011-06-30 00:00:00', 'Village Vacances dans les Landes', 'Nantes', '44000', 0, 0);
 INSERT INTO `demand` VALUES(2, 2, 'RF453', '2011-04-29 21:34:23', '2011-04-29 21:34:26', '2011-07-30 21:34:30', 'Chantier de la Garenne colombe', 'Paris', '92300', 0, 0);
 INSERT INTO `demand` VALUES(3, 1, '34567', '2011-04-29 21:35:19', '2011-04-29 21:35:22', '2011-04-30 21:35:26', 'Les bosses rouges', 'Carnon', '34280', 0, 0);
+INSERT INTO `demand` VALUES(4, 2, 'REF345', '2011-04-06 00:00:00', '2011-04-30 00:00:00', '2011-09-15 00:00:00', 'Chantier des bois', 'Montpellier', '34000', 0, 0);
+INSERT INTO `demand` VALUES(5, 2, 'REF5678', '2011-05-01 00:00:00', '2011-05-01 00:00:00', '2011-05-27 00:00:00', 'Aire des piverts', 'Creteil', '92345', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -126,7 +134,7 @@ CREATE TABLE `dictionary` (
 	  `key` varchar(40) collate utf8_unicode_ci NOT NULL,
 	  `value` text collate utf8_unicode_ci NOT NULL,
 	  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=40 ;
 
 --
 -- Contenu de la table `dictionary`
@@ -148,6 +156,29 @@ INSERT INTO `dictionary` VALUES(13, 'fr', 'login', 'Autolog', 'Se connecté auto
 INSERT INTO `dictionary` VALUES(14, 'en', 'login', 'Autolog', 'Autologin');
 INSERT INTO `dictionary` VALUES(15, 'fr', 'global', 'Refresh', 'Rafraichir');
 INSERT INTO `dictionary` VALUES(16, 'en', 'global', 'Refresh', 'Refresh');
+INSERT INTO `dictionary` VALUES(17, 'fr', 'global', 'Search', 'Rechercher');
+INSERT INTO `dictionary` VALUES(18, 'en', 'global', 'Search', 'Search');
+INSERT INTO `dictionary` VALUES(19, 'fr', 'global', 'Search', 'Rechercher');
+INSERT INTO `dictionary` VALUES(20, 'fr', 'filter', 'Filter', 'Filtre');
+INSERT INTO `dictionary` VALUES(21, 'en', 'filter', 'Filter', 'Filter');
+INSERT INTO `dictionary` VALUES(22, 'fr', 'filter', 'From', 'de');
+INSERT INTO `dictionary` VALUES(23, 'en', 'filter', 'From', 'from');
+INSERT INTO `dictionary` VALUES(24, 'fr', 'filter', 'To', 'à');
+INSERT INTO `dictionary` VALUES(25, 'en', 'filter', 'To', 'to');
+INSERT INTO `dictionary` VALUES(26, 'fr', 'demand', 'New', 'Nouvelle demande');
+INSERT INTO `dictionary` VALUES(27, 'en', 'demand', 'New', 'New demand');
+INSERT INTO `dictionary` VALUES(28, 'fr', 'demand', 'Reference', 'Référence');
+INSERT INTO `dictionary` VALUES(29, 'en', 'demand', 'Reference', 'Reference');
+INSERT INTO `dictionary` VALUES(30, 'fr', 'demand', 'Title', 'Titre');
+INSERT INTO `dictionary` VALUES(31, 'en', 'demand', 'Title', 'Title');
+INSERT INTO `dictionary` VALUES(32, 'fr', 'demand', 'City', 'Ville');
+INSERT INTO `dictionary` VALUES(33, 'en', 'demand', 'City', 'City');
+INSERT INTO `dictionary` VALUES(34, 'fr', 'demand', 'CityCode', 'Code postal');
+INSERT INTO `dictionary` VALUES(35, 'en', 'demand', 'CityCode', 'City code');
+INSERT INTO `dictionary` VALUES(36, 'fr', 'demand', 'CreatedOn', 'créer le');
+INSERT INTO `dictionary` VALUES(37, 'en', 'demand', 'CreatedOn', 'created on');
+INSERT INTO `dictionary` VALUES(38, 'fr', 'global', 'Edit', 'Editer');
+INSERT INTO `dictionary` VALUES(39, 'en', 'global', 'Edit', 'Edit');
 
 -- --------------------------------------------------------
 

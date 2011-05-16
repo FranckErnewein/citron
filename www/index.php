@@ -3,8 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" />
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>new</title>
-	<script type="text/javascript" src="js/lib/jquery-1.5.2.min.js"></script>
+	<script type="text/javascript" src="js/lib/jquery-1.6.1.js"></script>
 	<!--
 	<script type="text/javascript" src="js/jquery.render.js"></script>
 	-->
@@ -19,7 +22,8 @@
 	<script type="text/javascript" src="js/component/Content.js"></script>
 	<script type="text/javascript" src="js/component/MyDemandList.js"></script>
 	<script type="text/javascript" src="js/component/DemandListResult.js"></script>
-	<script type="text/javascript" src="js/component/AddDemand.js"></script>
+	<script type="text/javascript" src="js/component/DemandOwnerForm.js"></script>
+	<script type="text/javascript" src="js/component/BreadCrumb.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript">
 		var main;

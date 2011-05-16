@@ -47,7 +47,7 @@ class Demand extends AbstractModel
 			$demand[$i]['id'] = $row->id;
 			$demand[$i]['reference'] = $row->reference;
 			$demand[$i]['title'] = $row->title;
-			$demand[$i]['creation_date'] = $row->id;
+			$demand[$i]['creation_date'] = $row->creationDate;
 			$demand[$i]['last_update'] = $row->last_update;
 			$demand[$i]['end_date'] = $row->end_date;
 			$demand[$i]['city'] = $row->city;
@@ -81,9 +81,12 @@ class Demand extends AbstractModel
 				$demand['id'] = $row->demand_id;
 				$demand['user_id'] = $row->user_id;
 				$demand['title'] = $row->title;
+				$demand['creation_date'] = $row->creation_date;
 				$demand['reference'] = $row->reference;
 				$demand['last_update'] = $row->last_update;
 				$demand['end_date'] = $row->end_date;
+				$demand['city'] = $row->city;
+				$demand['city_code'] = $row->city_code;
 
 				$demand['article'] = array();
 

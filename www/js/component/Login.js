@@ -36,10 +36,8 @@
 			loadBundle(lang).done(function(){
 				node.trigger(events.LANG_CHANGE, lang);
 				self.render( {email:email.val(), password:password.val()});
-				$('#lang-change').val(lang);
+				//$('#lang-change').val(lang);
 			});
-
-
 
 		});
 

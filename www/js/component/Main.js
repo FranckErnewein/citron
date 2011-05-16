@@ -9,7 +9,6 @@
 	utils.inherits(Main, pack.AbstractComponent );
 
 	Main.prototype.onDomReady = function(){
-		
 	}
 
 	pack.Main = Main;

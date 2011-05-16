@@ -2,6 +2,11 @@
 .ui-layer{ position:fixed;top:0;left:0; height:100%; width:100%; background:rgba(0,0,0,0.5);}
 .ui-popup{ position:absolute;top:50%;left:50%; background:#fff; } 
 
+.ui-page{
+	padding:10px 0;
+	-webkit-border-radius:10px;
+	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.3);
+}
 
 
 .ui-item-list{

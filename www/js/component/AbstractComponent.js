@@ -12,7 +12,7 @@ if(!component) var component = {};
 		}
 		this.node = node;
 		this.name = this.node.attr( pack.config.ATTRIBUTE );
-		this.children = [];
+		this.children = {};
 		this.parent = parent || null;
 		this.data = {};
 
@@ -20,6 +20,7 @@ if(!component) var component = {};
 			this.render();
 		}
 	}
+
 
 	AbstractComponent.prototype.render = function(data){
 
@@ -41,8 +42,20 @@ if(!component) var component = {};
 	}
 
 	AbstractComponent.prototype.internalRender = function(){
+		var data = {
+			data:this.data
+		};
+		if(this.privateData){
+			data.privateData = this.privateData;
+		}
 		console.log('RENDER', this, this.data);
-		this.node.html(this.templateFunction({data:this.data}));
+		try{
+			var html = this.templateFunction({data:this.data});
+			this.node.html(html);
+		}catch(e){
+			console.error('Error in render of ' + this.name);
+			throw e;
+		}
 		this.initChildren();
 		if( typeof this.onDomReady == 'function'){
 			this.onDomReady();
@@ -84,16 +97,26 @@ if(!component) var component = {};
 				throw new Error('template compilation error : \n'+str);
 			}
 	};
+	
+	
 
 	AbstractComponent.prototype.initChildren = function(){
 		var self = this;
 		$('['+pack.config.ATTRIBUTE+']', this.node).each(function(){
 			try{
-				var cp = new pack[$(this).attr(pack.config.ATTRIBUTE)]($(this));
-				cp.init( $(this) );
-				self.children.push(cp);
+				var componentClassName = $(this).attr(pack.config.ATTRIBUTE);
+				var componentClass = pack[componentClassName];
+
+				if(!self.children[componentClassName]){
+					console.log('create', componentClassName);
+					self.children[componentClassName] = new componentClass($(this));
+				}
+				console.log('init', componentClassName);
+				self.children[componentClassName].init( $(this) , self);
+
 			}catch(e){
-				throw new Error('Unable to create component ' + $(this).attr(pack.config.ATTRIBUTE));
+				console.error('Unable to create component ' + $(this).attr(pack.config.ATTRIBUTE));
+				throw e;
 			}
 		});
 	}
@@ -104,7 +127,7 @@ if(!component) var component = {};
 	}
 
 	AbstractComponent.prototype.getChild = function( _class ){
-		for(var i=0; i<this.children.length; i++){
+		for(var i in this.children){
 			if( this.children[i] instanceof _class){
 				return this.children[i];
 			}

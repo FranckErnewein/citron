@@ -1,0 +1,12 @@
+<button><%= bundle.global.Edit %></button>
+<form action="#/demands/" method="POST" >	
+	<h1>
+		<label><input placeholder="<%= bundle.demand.Reference %>" class="data-field" type="text" name="reference" value="<%= data.reference %>" /> </label><br />
+		<label><input placeholder="<%= bundle.demand.Title %>" class="data-field" type="text" name="title" value="<%= data.title%>" /></label>
+	</h1>
+	<p>
+		<label><%= bundle.demand.CreatedOn %>:<span><%= data.creation_date%></span></label><br />
+		<label><%= bundle.demand.City %>:<input class="data-field" type="text" name="city" value="<%= data.city%>" /></label><br />
+		<label><%= bundle.demand.CityCode %>:<input class="data-field" type="text" name="citycode" value="<%= data.city_code%>" /></label>
+	</p>
+</form>

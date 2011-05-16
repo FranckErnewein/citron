@@ -11,10 +11,7 @@
 		
 		$('li', this.node).click(function(){
 
-			$('a', this).apiLink().done(function(done){
-				$(this).trigger(events.SHOW_DEMAND, data);
-				return false;
-			});
+			$('a', this).navigateLink()
 		});
 
 	}

@@ -1,7 +1,10 @@
 (function($){
 
 	var API_FORM_SELECTOR = '.api-field';
-
+	
+	$.fn.navigateLink = function(){
+		this.trigger('navigate', this.apiLink());
+	}
 
 	$.fn.apiLink = function(data){
 		return utils.api( this.attr('href').replace('#', '') );
