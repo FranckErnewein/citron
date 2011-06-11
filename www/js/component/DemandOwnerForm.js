@@ -16,18 +16,24 @@
 			self.toggleMode();
 		});
 
-		$('.data-field', this.node).after(function(){
+		$('.data-field', this.node).each(function(){
+
 			var span = $(document.createElement('span')).addClass('data-field-span');
 			var input = $(this);
+			input.change(function(){
+				span.text( $(this).val());
+			});
 			span.text( $(this).val());
-			return span;
-		});
+			input.after(span);
+		})
 
 		if(this.data){
 			this.visualMode();
 		}
 
 	}
+
+
 
 	DemandOwnerForm.prototype.toggleMode = function(){
 		if(this.isEditMode){

@@ -1,21 +1,17 @@
+body{background:#ccc;}
 
 .btn{border:1px solid #ccc;}
 
 
 .empty-fields{background:#ccc;}
 
-.global-content{
-	margin:0 5% 10px 5%;
-}
+.txt-left{text-align:left;}
+.txt-right{text-align:right;}
 
 .icon-arrow{
 
 }
 
-.search-bar{
-	padding:10px;
-	border-bottom:1px solid #ccc;
-}
 .btn-add{
 	cursor:pointer;
 	margin:8px 20px;
@@ -40,26 +36,27 @@
 	color:#666;
 }
 
-#user{
-	margin:8px 0 30px 0;
-	padding:10px;
-	float:right;
-	-webkit-border-radius:10px;
-	background:#ddd;
+#top-bar{ padding:0.5% 5%; color:#fff; background:#333;-webkit-box-shadow:5px 0 9px rgba(0,0,0,0.4); }
+#top-bar a{color:#fff; }
+
+#user{text-align:right;}
+
+#bread-crumb{
 }
 
-#content{
-	clear:both;
-}
-#demand .data-field{ display:none;background:#eee; } 
-#demand .data-field-span{ display:inline-block; }
+
+
+#content{ }
+
+#demand{padding:2%;}
+#demand .data-field{ display:none;border:3px dashed #d1b92d; background:#fffdec; }
+#demand .data-field:focus{ outline:none; background:#ece2a7;} 
+#demand .data-field-span{ padding:5px;display:inline-block; }
 #demand.edit-mode .data-field{ display:inline-block; }
 #demand.edit-mode .data-field-span{ display:none; }
 
 #demand h1 span, #demand h1 input,
 #demand p span, #demand p input{
-	-webkit-border-radius:5px;
-	border:1px solid #aaa;
 	display:inline-block;
 	text-align:left;
 	padding:2px 5px;
@@ -75,6 +72,7 @@
 	color:#999;
 	text-align:right;
 }
+
 #demand p input,
 #demand p span{display:inline-block;width:170px;}
 
@@ -85,6 +83,11 @@
 	font-weight:bold;
 }
 #demand h1 input{width:300px;}
+
+#demand .article{padding:10px;}
+#demand .article li{padding:2px;}
+#demand .article .even{background:#edf4fd;}
+#demand .article .name{display:inline-block;width:50%;}
 
 input{
 	font-size:inherit;

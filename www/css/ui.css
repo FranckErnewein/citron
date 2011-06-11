@@ -2,15 +2,16 @@
 .ui-layer{ position:fixed;top:0;left:0; height:100%; width:100%; background:rgba(0,0,0,0.5);}
 .ui-popup{ position:absolute;top:50%;left:50%; background:#fff; } 
 
-.ui-page{
-	padding:10px 0;
-	-webkit-border-radius:10px;
-	-webkit-box-shadow:0 0 4px rgba(0,0,0,0.3);
-}
+.ui-page{ background:#fff; }
+.ui-tab{padding:0 10px;}
+.ui-tab li{display:inline-block;}
+.ui-tab a{display:inline-block;padding:7px;color:#fff;background:#1865F0;text-decoration:none;}
+.ui-tab a:hover{color:#F0EC18}
 
+
+.ui-search{ padding:10px 5px;border-right:1px solid #ccc;border-bottom:1px solid #ccc; }
 
 .ui-item-list{
-	padding:0 0 5px 0;	
 }
 .ui-item-list .icon-arrow{
 	position:absolute;	
@@ -18,35 +19,24 @@
 	right:10px;
 }
 .ui-item-list li{
+	background:#eee;
 	position:relative;	
 	cursor:pointer;
 	padding:5px 40px 5px 10px;		
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, rgb(235,235,235)),
-		color-stop(1, rgb(255,255,255))
-	);
-	background-image: -moz-linear-gradient(
-		center bottom,
-		rgb(235,235,235) 0%,
-		rgb(255,255,255) 100%
-	);
 	border-bottom:1px solid #ccc;
+	border-right:1px solid #ccc;
 	
 }
 .ui-item-list li:hover{
-	background-image: -webkit-gradient(
-		linear,
-		left bottom,
-		left top,
-		color-stop(0, rgb(200,200,200)),
-		color-stop(1, rgb(255,255,255))
-	);
-	background-image: -moz-linear-gradient(
-		center bottom,
-		rgb(200,200,200) 0%,
-		rgb(255,255,255) 100%
-	);
+	background:#f7f7f7;
 }
+.ui-item-list li.active{
+	background:#fff;
+	border-right:1px solid #fff;
+}
+.ui-item-list li.loading{
+
+	background:#fff url(ajax-loader.gif) no-repeat 100% 50%;
+	border-right:1px solid #fff;
+}
+

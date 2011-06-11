@@ -4,6 +4,7 @@
 	
 	$.fn.navigateLink = function(){
 		this.trigger('navigate', this.apiLink());
+		document.location.hash = this.attr('href');
 	}
 
 	$.fn.apiLink = function(data){

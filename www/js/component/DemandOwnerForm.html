@@ -1,4 +1,11 @@
-<button><%= bundle.global.Edit %></button>
+<% if(data && data.title) { %>
+<p class="txt-right">
+<!--
+	<button>+ <%= bundle.demand.New%></button> | 
+-->
+	<button><%= bundle.global.Edit %></button>
+	<br /><br />
+</p>
 <form action="#/demands/" method="POST" >	
 	<h1>
 		<label><input placeholder="<%= bundle.demand.Reference %>" class="data-field" type="text" name="reference" value="<%= data.reference %>" /> </label><br />
@@ -9,4 +16,19 @@
 		<label><%= bundle.demand.City %>:<input class="data-field" type="text" name="city" value="<%= data.city%>" /></label><br />
 		<label><%= bundle.demand.CityCode %>:<input class="data-field" type="text" name="citycode" value="<%= data.city_code%>" /></label>
 	</p>
+
+	<ul class="article clr">
+		<% var index=0; %>
+		<% for(var id in data.article){ index++;%>
+		<li class="<%if(index%2==0){%>even<%}%>">
+				<span class="name"><input class="data-field" type="text" name="name_<%= id %>" value="<%= data.article[id].name%>" /></span>
+				<strong><input class="data-field" type="text" name="quantity_<%= id %>" value="<%= data.article[id].quantity%>" /></strong>
+			</li>
+		<% } %>
+	</ul>
+<!--	
+	<button><%= bundle.demand.showPropositions %></button>
+-->
 </form>
+<% } %>
+

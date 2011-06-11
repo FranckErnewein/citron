@@ -1,0 +1,20 @@
+
+.clr{clear:both};
+
+.zn-top{
+	
+}
+
+.zn-content{
+	margin:1%;
+	position:relative;
+}
+
+.zn-left{
+	float:left;
+	width:35%;
+}
+.zn-right{
+	float:right;
+	width:64%;
+}

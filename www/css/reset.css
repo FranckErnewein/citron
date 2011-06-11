@@ -22,3 +22,5 @@ body{font-family:sans-serif;}
 ul,ol,li,dt,dd{
 	list-style-type:none;
 }
+
+strong{font-weight:bold;}

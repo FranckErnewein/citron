@@ -8,10 +8,22 @@
 
 
 	DemandListResult.prototype.onDomReady = function(){
-		
-		$('li', this.node).click(function(){
 
-			$('a', this).navigateLink()
+		
+		var items = $('li', this.node);
+		items.bind('navigate', function(e, query){
+			var item = $(this);
+			item.addClass('loading');
+			query.done(function(){
+				$('.active', this.node).removeClass('active');
+				item.removeClass('loading').addClass('active');	
+			});
+			query.fail(function(){
+				item.removeClass('loading');	
+			});
+		});
+		items.click(function(){
+			$('a', this).navigateLink();
 		});
 
 	}

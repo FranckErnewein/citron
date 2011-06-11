@@ -38,7 +38,6 @@ $(document).bind(events.LANG_CHANGE, function(e, lang){
 
 
 var dom;
-var data;
 
 /*
 $(document).ready(function(){

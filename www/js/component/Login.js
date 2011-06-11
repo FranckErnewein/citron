@@ -29,14 +29,17 @@
 				$(this).removeClass('empty-fields');
 			}
 		});
-
-		context.lang = $('#lang-change').val();
+		
+		if(context.lang){
+			$('#lang-change').val(context.lang);
+		}
 		$('#lang-change').change(function(e){
 			var lang = $(this).val();
 			loadBundle(lang).done(function(){
 				node.trigger(events.LANG_CHANGE, lang);
+				console.log(lang, context.lang);
 				self.render( {email:email.val(), password:password.val()});
-				//$('#lang-change').val(lang);
+				$('#lang-change').val(lang);
 			});
 
 		});
@@ -78,8 +81,10 @@
 			return false;
 		});
 		if($.cookie('autolog') == 'true' || $.cookie('autolog') == true){
-			$('form').submit();
+			//$('form').submit();
 		}
+
+		email.focus();
 
 	}
 
