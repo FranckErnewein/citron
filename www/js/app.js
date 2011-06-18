@@ -1,3 +1,15 @@
+var app = {
+	
+	config:{
+		api:{
+			path:'/citron/www/api.php/'
+		}
+
+   }
+
+};
+
+
 
 if(!console)var console = {log:function(){}};
 var bundle = {};

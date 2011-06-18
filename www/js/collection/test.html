@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test collection</title>
+	<script type="text/javascript" src="../lib/jquery-1.6.1.js"></script>
+	<script type="text/javascript" src="../lib/underscore.js"></script>
+	<script type="text/javascript" src="../lib/backbone.js"></script>
+	<script type="text/javascript" src="../app.js"></script>
+	<script type="text/javascript" src="../model/AbstractModel.js"></script>
+	<script type="text/javascript" src="../model/User.js"></script>
+	<script type="text/javascript" src="../model/Demand.js"></script>
+	<script type="text/javascript" src="AbstractCollection.js"></script>
+	<script type="text/javascript" src="Users.js"></script>
+	<script type="text/javascript" src="Demands.js"></script>
+</head>
+<body>	
+
+	<script type="text/javascript">
+
+		var me = new app.model.User();
+		var demands = new app.collection.Demands();	
+
+		me.login('trade@antoinegroupe.com', 123456).done(function(){
+			demands.search('44');
+		});
+	</script>
+	
+	
+</body>
+</html>
