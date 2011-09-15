@@ -7,7 +7,6 @@ app.collection.AbstractCollection = Backbone.Collection.extend({
 	},
 
 	query:function(data, url, type){
-		console.log(app.model.AbstractModel);
 		return app.model.AbstractModel.prototype.query.call(this, data, url, type);
 	}
 	

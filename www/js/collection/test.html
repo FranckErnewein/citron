@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="AbstractCollection.js"></script>
 	<script type="text/javascript" src="Users.js"></script>
 	<script type="text/javascript" src="Demands.js"></script>
+	<script type="text/javascript" src="Content.js"></script>
 </head>
 <body>	
 
@@ -21,9 +22,19 @@
 		var me = new app.model.User();
 		var demands = new app.collection.Demands();	
 
+		var login = new app.model.Login();
+		login.set({login:'trade@antoinegroupe.com', password:'123456'});
+		login.save();
+
+		var bundleModel = new app.model.Bundle();
+		bundleModel.fetch();
+		var bundle = bundleModel.attributes;
+
+		/*
 		me.login('trade@antoinegroupe.com', 123456).done(function(){
 			demands.search('44');
 		});
+		*/
 	</script>
 	
 	

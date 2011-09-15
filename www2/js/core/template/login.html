@@ -1,0 +1,30 @@
+<div class="modal-wrapper">
+    <form>
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Connexion</h3>
+      </div>
+      <div class="modal-body">
+
+        <fieldset>
+          <div class="clearfix">
+            <label for="f-login-email">Email</label>
+            <div class="input">
+              <input class="xlarge" id="f-login-email" name="email" size="30" type="text" value="<%= this.model.get('email') %>" />
+            </div>
+          </div>
+          <div class="clearfix">
+            <label for="f-login-pwd">Password</label>
+            <div class="input">
+              <input class="xlarge" id="f-login-pwd" name="password" size="30" type="password"  value="<%= this.model.get('password') %>" />
+            </div>
+          </div>
+          </fieldset>
+
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn primary" value="Login"/>
+      </div>
+    </div>
+    </form>
+</div>

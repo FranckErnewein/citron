@@ -2,22 +2,20 @@ if(!app.model) app.model = {};
 
 app.model.AbstractModel = Backbone.Model.extend({
 	
-	url:function(path){
-		return app.config.api.path + (path || this.path);
+	url:function( path ){
+		var url = app.config.api.path + (path || this.path);
+		if(this.id)
+			url += '/' + this.id;
+		return url;
 	},
 
-	query:function(data, url, type){
-		url = this.url( url );
-		type || (type = 'GET');
-
-		return $.ajax({
-			url:url,
-			type:type,
-			data:data,
-			//contentType:'application/json',
-			dataType:'json'
-		});
-	}
+		
 	
+	sync:function(method, model, options){
+		options.dataType = 'application/x-www-form-urlencoded',
+		options.contentType = 'application/x-www-form-urlencoded',
+		//console.log(options);
+		Backbone.sync.call(this, method, model, options);
+	}
 
 });

@@ -2,15 +2,15 @@ if(!app.view) app.view = {};
 
 app.view.AbstractView = Backbone.View.extend({
 	
-	initialize:function(){
+	initialize:function(node){
 
-		Backbone.View.call(this);
+		//Backbone.View.call(this);
 
 		if(!node || node.length != 1){
 			throw new Error('node is not valid');
 		}
 		this.node = node;
-		this.name = this.node.attr( pack.config.ATTRIBUTE );
+		this.name = this.node.attr( app.config.view.attr );
 		this.children = {};
 		this.parent = parent || null;
 		this.data = {};
@@ -21,21 +21,20 @@ app.view.AbstractView = Backbone.View.extend({
 
 	},
 
-	render:function(){
+	render:function(data){
 		var self = this;
 
 		if(data != undefined){
 			this.data = data;
 		}
 
-
 		if(!this.templateFunction){
-			this.loadTemplate( pack.config.TMPL_PATH +  this.name + '.html' ).done(function(xhr){
+			this.loadTemplate( app.config.view.template + this.template ).done(function(xhr){
 				self.createTemplateFunction(xhr);
-				self.internalRender();
+				self._render();
 			});
 		}else{
-			this.internalRender();
+			this._render();
 		}
 	},
 
@@ -46,7 +45,7 @@ app.view.AbstractView = Backbone.View.extend({
 		if(this.privateData){
 			data.privateData = this.privateData;
 		}
-		console.log('RENDER', this, this.data);
+		console.log('RENDER', this.name, this.data);
 		try{
 			var html = this.templateFunction({data:this.data});
 			this.node.html(html);
@@ -59,7 +58,7 @@ app.view.AbstractView = Backbone.View.extend({
 			this.onDomReady();
 		}
 
-		this.node.trigger(pack.event.DOM_READY);
+		this.node.trigger('render');
 
 	},
 
@@ -97,20 +96,31 @@ app.view.AbstractView = Backbone.View.extend({
 
 	initChildren : function(){
 		var self = this;
-		$('['+pack.config.ATTRIBUTE+']', this.node).each(function(){
+		$('['+app.config.view.attr+']', this.node).each(function(){
 			try{
-				var componentClassName = $(this).attr(pack.config.ATTRIBUTE);
-				var componentClass = pack[componentClassName];
-
+				var componentClassName = $(this).attr(app.config.view.attr).split('.');
+				//var componentClass = pack[componentClassName];
+				var componentClass = window[componentClassName[0]];
+				for(var i=1; i<componentClassName.length-1;i++){
+					componentClass = componentClass[componentClassName[i]];	
+				}
+				if( componentClassName.length > 2 ){
+					componentClass = componentClass[componentClassName[componentClassName.length -1]];	
+				}
+				console.log(componentClass);
 				if(!self.children[componentClassName]){
 					console.log('create', componentClassName);
-					self.children[componentClassName] = new componentClass($(this));
+					try{
+						self.children[componentClassName] = new componentClass($(this));
+					}catch(e){
+						throw new ReferenceError( componentClassName.join('.') + ' not found');
+					}
 				}
 				console.log('init', componentClassName);
-				self.children[componentClassName].init( $(this) , self);
+				//self.children[componentClassName].init( $(this) , self);
 
 			}catch(e){
-				console.error('Unable to create component ' + $(this).attr(pack.config.ATTRIBUTE));
+				console.error('Unable to create component ' + $(this).attr(app.config.view.attr));
 				throw e;
 			}
 		});

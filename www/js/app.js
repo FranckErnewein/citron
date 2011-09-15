@@ -3,8 +3,11 @@ var app = {
 	config:{
 		api:{
 			path:'/citron/www/api.php/'
+		},
+		view:{
+			attr:'data-component',
+			template:'/citron/www/js/template/'
 		}
-
    }
 
 };

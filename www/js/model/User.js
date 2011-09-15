@@ -1,15 +1,20 @@
+app.model.Login = app.model.AbstractModel.extend({
+
+	path:'login'
+});
+
+
+app.model.Bundle = app.model.AbstractModel.extend({
+
+	path:'bundle'	
+});
+
+
 app.model.User = app.model.AbstractModel.extend({
 
-	path:'users',
 
 	login:function(login, pwd){
 		var self = this;
-		return this.query({
-			email:login,
-			password:pwd
-		}, 'login', 'POST' ).done(function(data){
-			self.set(data);	
-		});
 	}
 
 });

@@ -1,0 +1,13 @@
+<% _.each( fields, function( field, name ){ %>
+	<div class="clearfix">
+		<label for="field-<%= name %>">hey</label>
+		<div class="input">
+			
+			<% if(field == 'select' ){ %>
+				<input id="field-<%= name %>" name="<%= name %>"type="<%= field %>" />
+			<% }else{ %>
+				<input id="field-<%= name %>" name="<%= name %>"type="<%= field %>" />
+			<% } %>
+		</div>
+	</div>
+<% }) %>
