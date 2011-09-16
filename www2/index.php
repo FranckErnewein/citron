@@ -33,6 +33,7 @@
     <script src="js/core/view/Login.js"></script>
     <script src="js/core/view/UserBar.js"></script>
     <script src="js/customer/view/Home.js"></script>
+    <script src="js/customer/view/Demands.js"></script>
 
     <script src="js/customer.js"></script>
 
@@ -55,7 +56,7 @@
 		</div>
 	</div>
     <br /><br /><br />
-	<div class="container page" id="home"></div>
+	<div class="container page" id="page-content"></div>
 
     
 

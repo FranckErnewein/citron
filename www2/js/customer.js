@@ -5,17 +5,11 @@
 app.router.main = new customer.router.Main();
 
 app.router.main.route('home', 'home', function(){
-    if(!app.view.home){
-        app.view.home = new customer.view.Home({el:$('#home')});
-        app.view.home.render();
-    }
-    app.router.main.switchPage( app.view.home );
+    app.router.main.switchPage( new customer.view.Home() );
 });
 
 app.router.main.route('demands', 'demands', function(){
-    app.view.demands = new customer.view.Home({el:$('#home')});
-    app.view.demands.render();
-    app.router.main.switchPage( app.view.home );
+    app.router.main.switchPage( new customer.view.Demands() );
 });
 
 app.router.main.route('test', 'test', function(){
@@ -73,8 +67,10 @@ $(document).ready(function(){
     //userbar
     app.view.userbar = new core.view.UserBar({el:$('.secondary-nav'), model:app.model.user});
 
-    Backbone.history.start();
 
+    app.router.main.pageContent = $('#page-content');
+
+    Backbone.history.start();
     app.router.main.navigate('home', true);
 
 

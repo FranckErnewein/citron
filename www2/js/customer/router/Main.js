@@ -9,11 +9,14 @@ customer.router.Main = core.router.BaseRouter.extend({
    },
 
    switchPage:function( pageView ){
-        $('.page').hide();
-        if(pageView){
-            pageView.el.show();
+        if(this.currentPage){
+            this.currentPage.remove();
         }
-        
+        this.currentPage = pageView;
+        this.currentPage.render();
+        if(this.pageContent){
+            this.pageContent.hide().append( this.currentPage.el ).fadeIn();
+        }
     }
 
 });
