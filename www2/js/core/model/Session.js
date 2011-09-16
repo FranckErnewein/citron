@@ -1,5 +1,5 @@
 
-core.model.Session = core.model.Base.extend({
+core.model.Session = core.model.BaseModel.extend({
    
    uri:'session/user'
 

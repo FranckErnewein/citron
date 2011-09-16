@@ -24,6 +24,7 @@ var _methodMap = {
     'read'  : 'GET'
   };
 
+
 Backbone.sync = function(method, model, options){
     var type = _methodMap[method];
 
@@ -35,17 +36,28 @@ Backbone.sync = function(method, model, options){
     }, options);
 
 
-
+    
 
     if (!params.url) {
       params.url = _getUrl(model);
     }
 
-    if(type == 'create' || type == 'update'){
+    if(method == 'create' || method == 'update'){
         params.data = model.toJSON();
     }
 
-    return $.ajax(params);
+    var query = $.ajax(params);
+
+    model.trigger('ajax:start');
+    query.always(function( xhr ){
+        console.log('Ajax : sent', params.data , ' - xhr',  xhr );
+    });
+
+    query.done(function( xhr ){
+        model.trigger('ajax:success');
+    });
+
+    return query;
 }
 
 

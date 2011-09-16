@@ -1,4 +1,4 @@
-core.model.Base = Backbone.Model.extend({
+core.model.BaseModel = Backbone.Model.extend({
 
     urlParams:{},
 

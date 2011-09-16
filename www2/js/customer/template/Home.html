@@ -1,0 +1,38 @@
+<div class="row show-grid">
+    <div class="span8 columns">
+        <div class="homebox">
+          <div class="modal-header">
+            <h3>Demandes en cours</h3>
+          </div>
+          <div class="modal-body">
+            <p>
+                Consulter toutes les demandes que vous passez,<br />
+                Selectionnez vos fournisseur et passez vos commande<br />
+            </p>
+          </div>
+          <div class="modal-footer">
+              <a href="#demands" class="btn">Consulter</a>
+          </div>
+        </div>
+    </div>
+    <div class="span8 columns">
+        <div class="homebox">
+          <div class="modal-header">
+            <h3>Commandes</h3>
+          </div>
+          <div class="modal-body">
+            <p>
+                Retrouvez l'historique de toutes vos commandes.
+            </p>
+          </div>
+          <div class="modal-footer">
+              <a href="#commands" class="btn">Consulter</a>
+          </div>
+
+          
+        </div>
+    </div>
+    
+    <%= this.append( new core.view.UserBar({model:app.model.user}) , 'userbar' ) %>
+    <% console.log(this.subview.login); %>
+</div>

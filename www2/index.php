@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=940, initial-scale=1.0">
 	<title>Admin</title>
 	<link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -19,6 +21,10 @@
     <script src="js/core/model/BaseModel.js"></script>
     <script src="js/core/model/Session.js"></script>
     <script src="js/core/model/User.js"></script>
+    <script src="js/core/model/Demand.js"></script>
+
+    <script src="js/core/collection/BaseCollection.js"></script>
+    <script src="js/core/collection/Demands.js"></script>
 
     <script src="js/core/router/BaseRouter.js"></script>
     <script src="js/customer/router/Main.js"></script>
@@ -26,6 +32,8 @@
     <script src="js/core/view/BaseView.js"></script>
     <script src="js/core/view/Login.js"></script>
     <script src="js/core/view/UserBar.js"></script>
+    <script src="js/customer/view/Home.js"></script>
+
     <script src="js/customer.js"></script>
 
     
@@ -35,9 +43,11 @@
 	<div class="topbar">
 		<div class="fill">
 			<div class="container fixed">
-				<h3><a href="#" class="logo">Home</a></h3>
+				<h3><a href="#home" class="logo">Home</a></h3>
 				<ul>
-					<li><a href="#offers">Mes offres</a></li>
+					<li><a href="#demands">Mes demandes</a></li>
+                    <li><a href="#sellers">Mes collaborateur</a></li>
+                    <li><a href="#mails">Historique des relances</a></li>
 				</ul>
 
                 <ul class="nav secondary-nav"></ul>
@@ -45,14 +55,7 @@
 		</div>
 	</div>
     <br /><br /><br />
-	<div class="container-fluid">
-        <div class="sidebar">
-          ...
-        </div>
-        <div class="content">
-          ...
-        </div>
-    </div>
+	<div class="container page" id="home"></div>
 
     
 

@@ -13,7 +13,6 @@ core.view.UserBar = core.view.BaseView.extend({
 
         this.bind('render', function(){
             self.$('.dropdown').click(function(){
-                console.log('dude');
                 $(this).toggleClass('open');
                 return false;
             });

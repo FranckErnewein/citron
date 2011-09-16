@@ -1,3 +1,5 @@
 body,html{height:100%;}
 .modal-wrapper{position:absolute;height:100%;width:100%;top:0;left:0;z-index:20000;background:rgba(0,0,0,0.3);}
 
+.homebox{width:360px;margin:10px auto;border:1px solid #eee;}
+.homebox .modal-body{height:70px;}
