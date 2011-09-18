@@ -1,0 +1,23 @@
+<table class="zebra-striped">
+    <thead>
+        <th>Désignation</th>
+        <th>Quantité</th>
+        <th>Prix maximum</th>
+    </thead>
+    <tbody>
+        <% this.collection.each(function(article, i){ %>    
+            <tr>      
+                 <td><strong><%= article.get('name') %></strong></td>
+                 <td><%= article.get('quantity') %></td>
+                 <td><%= article.get('price_need') %></td>
+            </tr>
+        <% }); %>
+    </tbody>
+    <tfoot>
+        <td colspan="3"><%= this.collection.size() %> Article(s) </td>
+    </tfoot>
+
+
+
+</table>
+<a href="#" class="btn success">Ajouter un article</a>

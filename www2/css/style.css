@@ -1,5 +1,20 @@
 body,html{height:100%;}
+
+/* utils */
+.clr{clear:both;}
+
 .modal-wrapper{position:absolute;height:100%;width:100%;top:0;left:0;z-index:20000;background:rgba(0,0,0,0.3);}
 
 .homebox{width:360px;margin:10px auto;border:1px solid #eee;}
 .homebox .modal-body{height:70px;}
+
+
+.demand-search-item{border-bottom:1px solid #eee;position:relative;height:45px;}
+.demand-search-item h5,
+.demand-search-item h6{margin:0;padding:0;line-height:20px;}
+.demand-search-item a{position:absolute;bottom:1px;right:1px;}
+
+.page{margin-top:60px;}
+
+
+.layer{box-shadow:1px 1px 5px rgba(0,0,0,0.1);border-radius:6px;}

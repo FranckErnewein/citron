@@ -21,23 +21,16 @@ core.view.BaseView = Backbone.View.extend({
          
         }
         $(this.el).html(this.templateList[this.template].call( this , this.model ));
+        if(typeof this.onRender == 'function'){
+            this.onRender();
+        }
         this.trigger('render');
 
         return this;
-    },
-
-    append:function( view , name){
-        if(!this.subview){
-            this.subview = {};
-        }
-
-        if(name){
-            this.subview[name] = view;
-        }
-        
-        view.render();
-        return view.el.innerHTML;
     }
+
+    
+
 
 
 });

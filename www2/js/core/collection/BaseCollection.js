@@ -20,7 +20,7 @@ core.collection.BaseCollection = Backbone.Collection.extend({
         };
 
         return Backbone.sync('read', this, options).done(function(result){
-            if(typeof result == 'array'){
+            if( _.isArray(result) ){
                 _.each(result, function(item, i){
                     self.mergeItem( item );
                 });
@@ -32,12 +32,26 @@ core.collection.BaseCollection = Backbone.Collection.extend({
 
     mergeItem:function( json ){
       var id = json[this.model.prototype.idAttribute];
-      if( this.get(id) ){
+      var item = this.get(id);
+      if( item && item.toJSON() != json ){
           this.get(id).set( json );
       }else{
           this.add( json );
       }
+    },
+
+    getAnyway:function( id ){
+        var model = this.get( id );
+        if( !model ){
+            var data = {};
+            data[this.model.prototype.idAttribute] = id;
+            model = new this.model(data);
+            model.fetch();
+        }
+        return model;
     }
     
 });
+
+
 

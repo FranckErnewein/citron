@@ -35,6 +35,19 @@ core.model.BaseModel = Backbone.Model.extend({
             return errors;
         }
 
+    },
+
+    contains:function( str, fields ){
+        var self = this;
+        var detected = false;
+        _.each( fields, function(fieldName, i){
+            if(self.get(fieldName) && self.get(fieldName).toLowerCase().indexOf( str.toLowerCase() ) > -1){
+                detected = true;
+                return;
+            }
+        });
+        return detected;
     }
+
 });
 

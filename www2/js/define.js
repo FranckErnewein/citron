@@ -50,7 +50,7 @@ Backbone.sync = function(method, model, options){
 
     model.trigger('ajax:start');
     query.always(function( xhr ){
-        console.log('Ajax : sent', params.data , ' - xhr',  xhr );
+        console.log('Ajax : ', model.url() ,' sent', params.data , ' - xhr',  xhr );
     });
 
     query.done(function( xhr ){

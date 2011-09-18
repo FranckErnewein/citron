@@ -13,7 +13,7 @@ core.view.Login = core.view.BaseView.extend({
         });
 
         this.bind('render', function(){
-            errorMessage = $('.alert-message');
+            errorMessage = this.$('.alert-message');
 
             this.$('form').submit(function(e){
                 

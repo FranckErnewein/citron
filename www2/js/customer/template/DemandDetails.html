@@ -1,0 +1,19 @@
+<div>
+    <h3 class="modal-header"><%= this.model.get('title')%></h3>
+    <form class="modal-body">
+        
+        <h6><%= this.model.get('reference')%></h6
+        <address>
+            <%= this.model.get('city') %> <%= this.model.get('citycode') %>
+        </address>
+        <br />
+        <br />
+        <div id="article-list"></div>
+    </form>
+    
+
+    <div class="modal-footer">
+        <a href="#" class="btn">Editer</a>
+        <a href="#" class="btn danger">Supprimer</a>
+    </div>
+</div>
