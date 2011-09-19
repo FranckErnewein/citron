@@ -1,5 +1,5 @@
 
-core.view.Login = core.view.BaseView.extend({
+core.view.Login = core.view.Panel.extend({
     
     template:'js/core/template/Login.html',
 
@@ -42,9 +42,9 @@ core.view.Login = core.view.BaseView.extend({
         
         this.model.bind('change:user_id', function(model){
             if(model.get('user_id')){
-                $(self.el).fadeOut();
+                self.hide();
             }else{
-                $(self.el).fadeIn();
+                self.show();
             }
         });
 

@@ -1,0 +1,37 @@
+<div class="bg-modal bg-modal-close"></div>
+<form class="stacked-form">
+    <div class="modal">
+      <div class="modal-header">
+        <a href="#" class="close">x</a>
+        <h3>Article n°<%= this.model.id %></h3>
+      </div>
+      <div class="modal-body">
+
+        <fieldset>
+          <div class="clearfix">
+            <label>Designation</label>
+            <div class="input">
+              <input class="xlarge" name="name" size="30" type="text" value="<%= this.model.get('name') %>" />
+            </div>
+          </div>
+          <div class="clearfix">
+            <label>Quantité</label>
+            <div class="input">
+              <input class="mini" name="name" size="16" type="text" value="<%= this.model.get('quantity') %>" />
+            </div>
+          </div>
+          <div class="clearfix">
+            <label>Prix minimum</label>
+            <div class="input">
+              <input class="mini" name="name" size="16" type="text" value="<%= this.model.get('price_need') %>" />
+            </div>
+          </div>
+          
+          </fieldset>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn primary" value="Enregistrer"/>
+        <button class="btn cancel">Annuler</button>
+      </div>
+    </div>
+</form>

@@ -3,6 +3,7 @@
         <th>Désignation</th>
         <th>Quantité</th>
         <th>Prix maximum</th>
+        <th> </th>
     </thead>
     <tbody>
         <% this.collection.each(function(article, i){ %>    
@@ -10,14 +11,14 @@
                  <td><strong><%= article.get('name') %></strong></td>
                  <td><%= article.get('quantity') %></td>
                  <td><%= article.get('price_need') %></td>
+                 <td><a href="#<%= article.id %>">Editer</a></td>
             </tr>
         <% }); %>
     </tbody>
     <tfoot>
-        <td colspan="3"><%= this.collection.size() %> Article(s) </td>
+        <td colspan="4"> <a href="#" class="btn success fl-r">Ajouter un article</a><%= this.collection.size() %> Article(s)</td>
     </tfoot>
 
 
 
 </table>
-<a href="#" class="btn success">Ajouter un article</a>

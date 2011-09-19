@@ -17,9 +17,11 @@ customer.view.Demands = core.view.BaseView.extend({
             collection:new core.collection.Demands()
         });
         this.searchResult.render();
+
+        var lastKeyup = new Date().getTime();
         this.$('input').keyup(function(){
-            var value = this.value;
-            self.filter();
+            var newKeyup = new Date().getTime();
+            self.filter(this.value);
         });
 
         this.filter();

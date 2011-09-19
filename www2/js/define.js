@@ -48,13 +48,13 @@ Backbone.sync = function(method, model, options){
 
     var query = $.ajax(params);
 
-    model.trigger('ajax:start');
+    model.trigger('ajax:start', model);
     query.always(function( xhr ){
-        console.log('Ajax : ', model.url() ,' sent', params.data , ' - xhr',  xhr );
+        console.log(type , model.url() ,' sent', params.data , ' - xhr',  xhr );
     });
 
     query.done(function( xhr ){
-        model.trigger('ajax:success');
+        model.trigger('ajax:success', model);
     });
 
     return query;
