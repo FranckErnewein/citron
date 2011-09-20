@@ -5,6 +5,8 @@ table tfoot td{border-top:1px solid #ddd;}
 /* utils */
 .clr{clear:both;}
 .fl-r{float:right;}
+.fl-l{float:left;}
+.txt-r{text-align:right;}
 
 .modal-wrapper{position:fixed;height:100%;width:100%;top:0;left:0;z-index:20000;}
 .modal-wrapper .bg-modal{position:absolute;height:100%;width:100%;top:0;left:0;background:rgba(0,0,0,0.3);}

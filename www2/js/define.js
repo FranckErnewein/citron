@@ -42,8 +42,17 @@ Backbone.sync = function(method, model, options){
       params.url = _getUrl(model);
     }
 
-    if(method == 'create' || method == 'update'){
+    if(method == 'create'){
         params.data = model.toJSON();
+    }
+
+    if(method == 'update'){
+        var first = true;
+        _.each( model.JSON(), function( param, key ){
+            params.url += (first)? '?' : '&';
+            params.url += key+'='+param+'&';
+            first = false;
+        });
     }
 
     var query = $.ajax(params);

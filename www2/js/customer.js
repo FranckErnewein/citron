@@ -39,8 +39,8 @@ app.model.session.bind('change:user_id', function(session){
     app.model.user.id = session.get('user_id');
     if(app.model.user.id){
         app.model.user.fetch();
-        _.each(function(){
-            app.collection.reset();
+        _.each(app.collection, function(col){
+            col.reset();
         });
         app.collection.demands.setUriParam('user_id', session.get('user_id'));
         app.collection.demands.merge();

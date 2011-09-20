@@ -11,27 +11,26 @@
           <div class="clearfix">
             <label>Designation</label>
             <div class="input">
-              <input class="xlarge" name="name" size="30" type="text" value="<%= this.model.get('name') %>" />
+              <input class="xlarge field" name="name" size="30" type="text" value="<%= this.model.get('name') %>" />
             </div>
           </div>
           <div class="clearfix">
             <label>Quantité</label>
             <div class="input">
-              <input class="mini" name="name" size="16" type="text" value="<%= this.model.get('quantity') %>" />
+              <input class="mini field" name="quantity" size="16" type="text" value="<%= this.model.get('quantity') %>" />
             </div>
           </div>
           <div class="clearfix">
             <label>Prix minimum</label>
             <div class="input">
-              <input class="mini" name="name" size="16" type="text" value="<%= this.model.get('price_need') %>" />
+              <input class="mini field" name="price_need" size="16" type="text" value="<%= this.model.get('price_need') %>" />
             </div>
           </div>
-          
           </fieldset>
       </div>
       <div class="modal-footer">
         <input type="submit" class="btn primary" value="Enregistrer"/>
-        <button class="btn cancel">Annuler</button>
+        <a href="#" class="btn cancel">Annuler</a>
       </div>
     </div>
 </form>

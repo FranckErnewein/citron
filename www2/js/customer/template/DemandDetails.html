@@ -1,11 +1,21 @@
 <div>
     <h3 class="modal-header"><%= this.model.get('title')%></h3>
     <form class="modal-body">
+        <div class="row show-grid">
+            <div class="span4">
+                <p><%= this.model.get('reference')%></p>
+                <address>
+                    <%= this.model.get('city_code') %> <%= this.model.get('city') %>
+                </address>
+            </div>
+            <div class="span4">
+                <p class="txt-r">
+                    Crée : <%= this.model.get('creation_date') %><br />
+                    Fin : <%= this.model.get('end_date') %>
+                </p>
+            </div>
+        </div>
         
-        <h6><%= this.model.get('reference')%></h6
-        <address>
-            <%= this.model.get('city') %> <%= this.model.get('citycode') %>
-        </address>
         <br />
         <br />
         <div id="article-list"></div>

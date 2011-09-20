@@ -16,6 +16,7 @@ core.view.FormPanel = core.view.Panel.extend({
            return false;
         });
 
+
         
 
         this.model.bind('error', function(){

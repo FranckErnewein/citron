@@ -14,12 +14,14 @@ core.view.Panel = core.view.BaseView.extend({
         return this;
     },
 
-    hide:function(){
+    hide:function(e){
+        if(e && e.stopPropagation) e.stopPropagation();
         $(this.el).fadeOut();
         return this;
     },
 
-    show:function(){
+    show:function(e){
+        if(e && e.stopPropagation) e.stopPropagation();
         this.render();
         $(this.el).hide().fadeIn();
         return this;
