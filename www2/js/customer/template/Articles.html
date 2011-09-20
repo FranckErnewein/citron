@@ -3,7 +3,7 @@
         <th>Désignation</th>
         <th>Quantité</th>
         <th>Prix maximum</th>
-        <th> </th>
+        <th width="37"> </th>
     </thead>
     <tbody>
         <% this.collection.each(function(article, i){ %>    
@@ -11,7 +11,7 @@
                  <td><strong><%= article.get('name') %></strong></td>
                  <td><%= article.get('quantity') %></td>
                  <td><%= article.get('price_need') %></td>
-                 <td><a class="edit" href="#<%= article.id %>">Editer</a> | <a class="delete" href="#<%= article.id %>">Supprimer</a></td>
+                 <td><a class="edit" href="#<%= article.id %>"><img src="img/icon/pencil_icon&16.png" /></a> <a class="delete" href="#<%= article.id %>"><img src="img/icon/round_delete_icon&16.png" /></a></td>
             </tr>
         <% }); %>
     </tbody>
