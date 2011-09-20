@@ -67,7 +67,11 @@
 		</div>
 	</div>
     
-	<div class="container page" id="page-content"></div>
+	<div class="container page">
+        <div id="loader">Sync ...</div>
+        <div id="page-content">
+        </div>
+    </div>
 
     
 

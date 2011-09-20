@@ -25,7 +25,29 @@ var _methodMap = {
   };
 
 
+
+
+app.xhr = new Backbone.Collection();
+
+var loaderXHR;
+$(document).ready(function(){
+    loaderXHR = $('#loader').css({'visibility':'hidden'});
+    console.log(loaderXHR)
+});
+app.xhr.bind('add', function(xhr){
+    console.log(app.xhr.size() )
+    if(app.xhr.size() > 0 && loaderXHR) loaderXHR.css({'visibility':'visible'});
+});
+app.xhr.bind('remove', function(xhr){
+    console.log(app.xhr.size() , loaderXHR)
+    if(app.xhr.size() == 0 && loaderXHR) loaderXHR.css({'visibility':'hidden'});
+});
+
+
 Backbone.sync = function(method, model, options){
+
+
+
     var type = _methodMap[method];
 
 
@@ -57,8 +79,12 @@ Backbone.sync = function(method, model, options){
 
     var query = $.ajax(params);
 
+    var xhrModel = new Backbone.Model(params);
+    app.xhr.add(xhrModel);
+
     model.trigger('ajax:start', model);
     query.always(function( xhr ){
+        app.xhr.remove( xhrModel );
         console.log(type , model.url() ,' sent', params.data , ' - xhr',  xhr );
     });
 
