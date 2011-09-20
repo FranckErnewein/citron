@@ -13,11 +13,19 @@ customer.view.Articles = core.view.BaseView.extend({
            self.render();
        });
 
+       this.collection.bind('destroy', function(){
+           self.render();
+       });
+
+       this.collection.bind('change', function(){
+           self.render();
+       });
+
    },
 
    onRender:function(){
      var self = this;
-     $('a', this.el).click(function(){
+     $('a.edit', this.el).click(function(){
         var articleToEdit = self.collection.get( $(this).attr('href').replace('#', ''));
         if(articleToEdit){
             new core.view.ArticleFormPanel({model:articleToEdit }).attach().show();
@@ -25,10 +33,19 @@ customer.view.Articles = core.view.BaseView.extend({
         return false;
      });
 
+     $('a.delete', this.el).click(function(){
+        var articleToDelete = self.collection.get( $(this).attr('href').replace('#', ''));
+        if(articleToDelete){
+            new core.view.DeletePanel({model:articleToDelete }).attach().show();
+        }
+        return false;
+     });
 
-     $('.btn.success').click(function(){
-        var articleToEdit = new core.model.Article({'demand_id':self.collection.uriParams.demand_id});
-        new core.view.ArticleFormPanel({model:articleToEdit }).attach().show();
+
+     $('.btn.success', this.el).click(function(){
+        var newArticle = new core.model.Article({'demand_id':self.collection.uriParams.demand_id});
+        self.collection.add( newArticle );
+        new core.view.ArticleFormPanel({model:newArticle }).attach().show();
         
      });
    }

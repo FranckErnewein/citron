@@ -1,6 +1,7 @@
 
 core.view.FormPanel = core.view.Panel.extend({
 
+
     onRender:function(){
 
         var self = this;
@@ -12,16 +13,13 @@ core.view.FormPanel = core.view.Panel.extend({
                 data[this.name] = this.value;
            });
            self.model.set(data);
-           self.model.save();
+           self.model.save().done(function(){
+               self.hide();
+           });
            return false;
         });
 
 
-        
-
-        this.model.bind('error', function(){
-            console.log('error');
-        });
 
     }
 });

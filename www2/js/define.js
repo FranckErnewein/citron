@@ -48,7 +48,7 @@ Backbone.sync = function(method, model, options){
 
     if(method == 'update'){
         var first = true;
-        _.each( model.JSON(), function( param, key ){
+        _.each( model.toJSON(), function( param, key ){
             params.url += (first)? '?' : '&';
             params.url += key+'='+param+'&';
             first = false;

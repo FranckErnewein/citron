@@ -3,7 +3,8 @@
     <div class="modal">
       <div class="modal-header">
         <a href="#" class="close">x</a>
-        <h3>Article n°<%= this.model.id %></h3>
+        <h3>
+            <%= (this.model.isNew())? "Nouvel article" : "Article n° " + this.model.id %></h3>
       </div>
       <div class="modal-body">
 
@@ -29,7 +30,7 @@
           </fieldset>
       </div>
       <div class="modal-footer">
-        <input type="submit" class="btn primary" value="Enregistrer"/>
+        <input type="submit" class="btn primary" value="<%= (this.model.isNew())? 'Ajouter cet article' : 'enregistrer' %>"/>
         <a href="#" class="btn cancel">Annuler</a>
       </div>
     </div>

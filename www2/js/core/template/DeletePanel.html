@@ -1,0 +1,15 @@
+<div class="bg-modal bg-modal-close"></div>
+<div class="modal">
+  <div class="modal-header">
+    <a href="#" class="close">x</a>
+    <h3>Attention</h3>
+  </div>
+  <div class="modal-body">
+    <p>Vous vous apprêtez a <strong>supprimer une ressource</strong>. Cette action est <strong><u>irreversible</u></strong>.</p>
+    <h4><%= this.model.get( this.options.label )%></h4>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn danger delete">Supprimer</a>
+    <a href="#" class="btn cancel">Annuler</a>
+  </div>
+</div>

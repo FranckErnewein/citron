@@ -11,7 +11,7 @@
                  <td><strong><%= article.get('name') %></strong></td>
                  <td><%= article.get('quantity') %></td>
                  <td><%= article.get('price_need') %></td>
-                 <td><a href="#<%= article.id %>">Editer</a></td>
+                 <td><a class="edit" href="#<%= article.id %>">Editer</a> | <a class="delete" href="#<%= article.id %>">Supprimer</a></td>
             </tr>
         <% }); %>
     </tbody>

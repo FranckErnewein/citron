@@ -35,6 +35,7 @@
 
     <script src="js/core/view/BaseView.js"></script>
     <script src="js/core/view/Panel.js"></script>
+    <script src="js/core/view/DeletePanel.js"></script>
     <script src="js/core/view/FormPanel.js"></script>
     <script src="js/core/view/Login.js"></script>
     <script src="js/core/view/ArticleFormPanel.js"></script>
