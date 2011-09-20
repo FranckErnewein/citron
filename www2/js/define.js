@@ -32,14 +32,11 @@ app.xhr = new Backbone.Collection();
 var loaderXHR;
 $(document).ready(function(){
     loaderXHR = $('#loader').css({'visibility':'hidden'});
-    console.log(loaderXHR)
 });
 app.xhr.bind('add', function(xhr){
-    console.log(app.xhr.size() )
     if(app.xhr.size() > 0 && loaderXHR) loaderXHR.css({'visibility':'visible'});
 });
 app.xhr.bind('remove', function(xhr){
-    console.log(app.xhr.size() , loaderXHR)
     if(app.xhr.size() == 0 && loaderXHR) loaderXHR.css({'visibility':'hidden'});
 });
 
