@@ -15,7 +15,11 @@ core.view.UserBar = core.view.BaseView.extend({
             self.$('.dropdown').click(function(){
                 $(this).toggleClass('open');
                 return false;
+            }).mouseleave(function(){
+                $(this).removeClass('open');
             });
+
+
 
             self.$('.logout').click(function(){
                 self.model.logout();

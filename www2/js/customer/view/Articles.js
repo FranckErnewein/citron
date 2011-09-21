@@ -6,8 +6,6 @@ customer.view.Articles = core.view.BaseView.extend({
    initialize:function(){
 
        var self = this;
-       
-       console.log(this.collection);
       
        this.collection.bind('ajax:success', function(){
            self.render();
@@ -36,7 +34,7 @@ customer.view.Articles = core.view.BaseView.extend({
      $('a.delete', this.el).click(function(){
         var articleToDelete = self.collection.get( $(this).attr('href').replace('#', ''));
         if(articleToDelete){
-            new core.view.DeletePanel({model:articleToDelete }).attach().show();
+            new core.view.DeletePanel({model:articleToDelete, label:'name' }).attach().show();
         }
         return false;
      });

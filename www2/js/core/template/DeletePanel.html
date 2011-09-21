@@ -2,11 +2,10 @@
 <div class="modal">
   <div class="modal-header">
     <a href="#" class="close">x</a>
-    <h3>Attention</h3>
+    <h3>Suppression de <%= this.model.get( this.options.label ) || 'la ressource n° '+this.model.id %></h3>
   </div>
   <div class="modal-body">
-    <p>Vous vous apprêtez a <strong>supprimer une ressource</strong>.</p>
-    <h4><%= this.model.get( this.options.label )%></h4>
+    <p>Vous vous apprêtez a <strong>supprimer cette ressource</strong>.</p>
     <p>Cette action est <strong><u>irreversible</u></strong>.</p>
   </div>
   <div class="modal-footer">

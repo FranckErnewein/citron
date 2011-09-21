@@ -25,7 +25,8 @@ var _methodMap = {
   };
 
 
-
+//console
+if(!console) var console = {log:function(){}};
 
 app.xhr = new Backbone.Collection();
 
