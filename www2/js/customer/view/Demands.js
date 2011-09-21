@@ -5,7 +5,8 @@ customer.view.Demands = core.view.BaseView.extend({
 
     initialize:function(){
         var self = this;
-        this.collection.bind('ajax:success', function(){
+        this.collection.bind('add', function(){
+            //console.log('ajax success', self.collection.size())
             self.filter( $('input', self.el).val() );
         });
     },
@@ -29,17 +30,13 @@ customer.view.Demands = core.view.BaseView.extend({
     },
 
     filter:function( value ){
-       if(value){
-            this.searchResult.collection.reset();
-            this.searchResult.collection.add( this.collection.filter(function( demand ){
-                return demand.contains( value, ['title', 'reference', 'city', 'citycode'] );
-            }) );
-            this.searchResult.render();
-        }else{
-            this.searchResult.collection.reset();
-            this.searchResult.collection.add( this.collection.toJSON() );
-            this.searchResult.render();
-        }
+        if(value === undefined) value = "";
+        this.searchResult.collection.reset();
+        this.searchResult.collection.add( this.collection.filter(function( demand ){
+            return demand.contains( value, ['title', 'reference', 'city', 'citycode'] );
+        }) );
+        this.searchResult.render();
+       
     },
 
     displayDemand:function( id ){
