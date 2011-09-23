@@ -1,0 +1,39 @@
+<div class="bg-modal bg-modal-close"></div>
+<form class="stacked-form">
+    <div class="modal">
+      <div class="modal-header">
+        <a href="#" class="close">x</a>
+        <h3>
+            <%= (this.model.isNew())? "Nouvelle demande" : "Demande n° " + this.model.id %></h3>
+      </div>
+      <div class="modal-body">
+
+        <fieldset>
+          <div class="clearfix">
+            <label>Titre</label>
+            <div class="input">
+              <input class="xlarge field" name="title" size="30" type="text" value="<%= this.model.get('title') %>" />
+            </div>
+          </div>
+          <div class="clearfix">
+            <label>Référence</label>
+            <div class="input">
+              <input class="mini field" name="reference" size="16" type="text" value="<%= this.model.get('reference') %>" />
+            </div>
+          </div>
+          <div class="clearfix">
+            <label>Ville</label>
+            <div class="input">
+              <input class="span3 field" name="city" size="16" type="text" value="<%= this.model.get('city') %>" />
+              CP
+              <input class="mini field" name="city_code" size="16" type="text" value="<%= this.model.get('city_code') %>" />
+            </div>
+          </div>
+          </fieldset>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn primary" value="<%= (this.model.isNew())? 'Ajouter cette Demande' : 'enregistrer' %>"/>
+        <a href="#demands/<%= this.model.id %>" class="btn cancel">Annuler</a>
+      </div>
+    </div>
+</form>
