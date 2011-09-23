@@ -1,6 +1,11 @@
 
 core.view.FormPanel = core.view.Panel.extend({
 
+    events:{
+        'click .close':'hide',
+        'click .cancel':'hide',
+        'click .bg-modal-close':'hide'
+    },
 
     onRender:function(){
 

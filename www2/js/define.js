@@ -87,7 +87,7 @@ Backbone.sync = function(method, model, options){
     });
 
     query.done(function( xhr ){
-        model.trigger('ajax:success', model);
+        model.trigger('ajax:success' , model, method);
     });
 
     return query;

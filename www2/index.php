@@ -38,6 +38,7 @@
     <script src="js/core/view/DeletePanel.js"></script>
     <script src="js/core/view/FormPanel.js"></script>
     <script src="js/core/view/Login.js"></script>
+    <script src="js/core/view/DemandFormPanel.js"></script>
     <script src="js/core/view/ArticleFormPanel.js"></script>
     <script src="js/core/view/UserBar.js"></script>
     <script src="js/customer/view/Home.js"></script>
@@ -45,6 +46,7 @@
     <script src="js/customer/view/DemandDetails.js"></script>
     <script src="js/customer/view/DemandSearchResult.js"></script>
     <script src="js/customer/view/Articles.js"></script>
+
 
     <script src="js/customer.js"></script>
 
@@ -54,7 +56,7 @@
 <body>
 	<div class="topbar">
 		<div class="fill">
-			<div class="container fixed">
+			<div class="container-fluid fixed">
 				<h3><a href="#home" class="logo">Home</a></h3>
 				<ul>
 					<li><a href="#demands">Mes demandes</a></li>
@@ -67,7 +69,7 @@
 		</div>
 	</div>
     
-	<div class="container page">
+	<div class="container-fluid page">
         <div id="loader">Sync ...</div>
         <div id="page-content">
         </div>

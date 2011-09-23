@@ -1,10 +1,10 @@
-<i><%= this.collection.size() %> Resultat<%= ((this.collection.size() > 1)?'s':'') %></i>
+<i><%= this.filteredResult.length %> Resultat<%= ((this.collection.size() > 1)?'s':'') %></i>
 
-<% this.collection.each(function( offer, i ){ %>
+<% _.each(this.filteredResult, function( demand, i ){ %>
     
     <div class="demand-search-item">
-        <h5><%= offer.get('title') %></h5>
-        <span class="label"><%= offer.get('reference')%></span>
-        <a href="#demands/<%= offer.id %>"> </a>
+        <h5><%= demand.get('title') %></h5>
+        <span class="label"><%= demand.get('reference')%></span>
+        <a href="#demands/<%= demand.id %>"> </a>
     </div>
 <% }); %>

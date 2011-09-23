@@ -42,8 +42,12 @@ customer.view.Articles = core.view.BaseView.extend({
 
      $('.btn.add', this.el).click(function(){
         var newArticle = new core.model.Article({'demand_id':self.collection.uriParams.demand_id});
-        self.collection.add( newArticle );
-        new core.view.ArticleFormPanel({model:newArticle }).attach().show();
+        newArticle.bind('ajax:success', function( model, method ){
+            if(method == 'create'){
+                self.collection.add( newArticle );
+            }
+        });
+        new core.view.ArticleFormPanel({ model:newArticle }).attach().show();
         
      });
    }

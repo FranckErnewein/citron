@@ -6,8 +6,7 @@ customer.view.Demands = core.view.BaseView.extend({
     initialize:function(){
         var self = this;
         this.collection.bind('add', function(){
-            //console.log('ajax success', self.collection.size())
-            self.filter( $('input', self.el).val() );
+            
         });
     },
 
@@ -15,29 +14,34 @@ customer.view.Demands = core.view.BaseView.extend({
         var self = this;
         this.searchResult = new customer.view.DemandSearchResult({
             el:this.$('#demand-search-result'),
-            collection:new core.collection.Demands()
+            collection:this.collection
         });
         this.searchResult.render();
 
-        var lastKeyup = new Date().getTime();
-        this.$('input').keyup(function(){
-            var newKeyup = new Date().getTime();
-            self.filter(this.value);
+        $('input', this.el).keyup(function(){
+            self.searchResult.setFilter( this.value );
         });
 
-        this.filter();
+        $('.add-demand', this.el).click(function(e){
+            var newDemand = new core.model.Demand({
+               'user_id':app.model.user.id
+            });
+            newDemand.bind('ajax:success', function(model, method){
+                if(method == 'create'){
+                    self.collection.add(newDemand);
+                }
+            });
+            new core.view.DemandFormPanel({
+               model:newDemand
+            }).attach().show();
 
-    },
+            return false;
+        })
 
-    filter:function( value ){
-        if(value === undefined) value = "";
-        this.searchResult.collection.reset();
-        this.searchResult.collection.add( this.collection.filter(function( demand ){
-            return demand.contains( value, ['title', 'reference', 'city', 'citycode'] );
-        }) );
+        
         this.searchResult.render();
-       
     },
+
 
     displayDemand:function( id ){
         if(this.demand){

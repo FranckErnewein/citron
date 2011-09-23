@@ -3,11 +3,9 @@
     <div class="modal">
       <div class="modal-header">
         <a href="#" class="close">x</a>
-        <h3>
-            <%= (this.model.isNew())? "Nouvel article" : "Article n° " + this.model.id %></h3>
+        <h3><%= (this.model.isNew())? "Nouvel article" : "Article n° " + this.model.id %></h3>
       </div>
       <div class="modal-body">
-
         <fieldset>
           <div class="clearfix">
             <label>Designation</label>

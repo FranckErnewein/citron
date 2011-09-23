@@ -1,6 +1,11 @@
 <div>
-    <h3 class="modal-header"><span class="label"><%= this.model.get('reference')%></span> <%= this.model.get('title')%></h3>
-    <form class="modal-body">
+    <a href="#" class="btn edit fl-r">Editer</a>
+    <h3>
+        <span class="label"><%= this.model.get('reference')%></span>
+        <%= this.model.get('title')%>
+    </h3>
+    
+    <form>
             <div class="fl-l">
                 <address>
                     <%= this.model.get('city_code') %><br />
@@ -14,12 +19,16 @@
                 </p>
             </div>
         <div class="clr"></div>
+
+        <h5>Liste des articles :</h5>
         <div id="article-list"></div>
     </form>
     
-
-    <div class="modal-footer">
-        <a href="#" class="btn">Editer</a>
-        <a href="#" class="btn danger">Supprimer</a>
-    </div>
+    
+    
+    <p class="txt-r">
+        <br />
+        <a href="#" class="btn danger delete-demand">Supprimer</a>
+    <p>
+    
 </div>

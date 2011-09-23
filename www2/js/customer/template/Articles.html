@@ -1,25 +1,39 @@
 <table class="zebra-striped">
     <thead>
+        <th width="18"> </th>
         <th>Désignation</th>
         <th class="txt-r">Quantité</th>
         <th class="txt-r">Prix maximum</th>
-        <th width="37"> </th>
+        <th width="18"> </th>
     </thead>
     <tbody>
-        <% this.collection.each(function(article, i){ %>    
-            <tr>      
-                 <td><strong><%= article.get('name') %></strong></td>
-                 <td class="txt-r"><%= article.get('quantity') %></td>
-                 <td class="txt-r"><%= article.get('price_need') %> €</td>
-                 <td>
-                     <a class="edit" href="#<%= article.id %>" title="Editer"><img src="img/icon/pencil_icon&16.png" /></a>
-                     <a class="delete" title="supprimer" href="#<%= article.id %>"><img src="img/icon/round_delete_icon&16.png" /></a>
-                 </td>
-            </tr>
-        <% }); %>
+        <%
+            if(this.collection.size() > 1){
+                 this.collection.each(function(article, i){
+        %>
+                    <tr>
+                         <td>
+                            <a class="edit" href="#<%= article.id %>" title="Editer"><img src="img/icon/pencil_icon&16.png" /></a>
+                         </td>
+                         <td><strong><%= article.get('name') %></strong></td>
+                         <td class="txt-r"><%= article.get('quantity') %></td>
+                         <td class="txt-r"><%= article.get('price_need') %> €</td>
+                         <td>
+                            <a class="delete" title="supprimer" href="#<%= article.id %>"><img src="img/icon/round_delete_icon&16.png" /></a>
+                         </td>
+                    </tr>
+        <%
+                });
+            }else{
+        %>
+                <tr><td colspan="5"><h6 class="txt-c"> Aucun Article</h6></td></tr>
+        <%
+            }
+        %>
+
     </tbody>
     <tfoot>
-        <td colspan="4"> <a href="#" class="btn add primary fl-r">Ajouter un article</a><%= this.collection.size() %> Article(s)</td>
+        <td colspan="5"> <a href="#" class="btn add primary fl-r">Ajouter un article</a><%= this.collection.size() %> Article(s)</td>
     </tfoot>
 
 
