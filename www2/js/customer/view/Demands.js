@@ -29,6 +29,10 @@ customer.view.Demands = core.view.BaseView.extend({
             newDemand.bind('ajax:success', function(model, method){
                 if(method == 'create'){
                     self.collection.add(newDemand);
+                    if(app && app.router && app.router.main){
+                        app.router.main.navigate('demands/'+ newDemand.id, true);
+                    }
+
                 }
             });
             new core.view.DemandFormPanel({

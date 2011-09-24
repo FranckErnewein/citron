@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frapi-config>
+ <partners>
+  <partner>
+   <firstname>test</firstname>
+   <lastname>test</lastname>
+   <email>test</email>
+   <company>test</company>
+   <api_key>34c285b25ac62f9472265d1e41f8a77f5d2382f6</api_key>
+   <hash>e326a4351d1fc4399b68eba62f15a52a7335b7a0</hash>
+  </partner>
+  <partner>
+   <firstname>Rémy</firstname>
+   <lastname>Muriach</lastname>
+   <email>remy.muriach@libertysurf.fr</email>
+   <company>Antoine Espace Vert</company>
+   <api_key>1aeac8e7933af0b071893853dfe3f264bbe8645d</api_key>
+   <hash>4243dd7e99edbf622cf6433cab0ee190afdf0119</hash>
+  </partner>
+ </partners>
+</frapi-config>
