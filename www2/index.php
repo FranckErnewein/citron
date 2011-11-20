@@ -60,7 +60,7 @@
 				<h3><a href="#home" class="logo">Home</a></h3>
 				<ul>
 					<li><a href="#demands">Mes demandes</a></li>
-                    <li><a href="#sellers">Mes collaborateur</a></li>
+                    <li><a href="#sellers">Mes collaborateurs</a></li>
                     <li><a href="#mails">Historique des relances</a></li>
 				</ul>
 
