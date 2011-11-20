@@ -12,8 +12,10 @@ customer.view.DemandDetails = core.view.BaseView.extend({
 
         this.model.bind('destroy', function(model, method){
             $(self.el).empty();
+            console.log('???')
             model.collection.remove(model);
         });
+
 
         this.articles = new core.collection.Articles();
         this.articles.setUriParam('demand_id', this.model.id );

@@ -42,16 +42,15 @@ core.collection.BaseCollection = Backbone.Collection.extend({
     },
 
     getAnyway:function( id ){
-        var model = this.get( id );
-        if( !model ){
+        
+        if( !this.get( id ) ){
             var data = {};
             data[this.model.prototype.idAttribute] = id;
-            model = new this.model(data);
-            this.add( model );
-            model.fetch();
+            this.add( data );
+            this.get( id ).fetch();
         }
         
-        return model;
+        return this.get( id );
     }
     
 });

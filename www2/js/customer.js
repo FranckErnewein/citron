@@ -11,17 +11,19 @@ app.router.main.route('home', 'home', function(){
 });
 
 app.router.main.route(/demands\/?(\d*)?/, 'demands', function( id ){
-    if( !(this.currentPage instanceof customer.view.Demands)){
-        var page = new customer.view.Demands({collection:app.collection.demands});
-        this.switchPage( page );
-    }else{
-        page = this.currentPage;
+    console.log('navigate', app.model.user.id)
+    if(app.model.user.id){
+        console.log('and id', app.model.user.id)
+        if( !(this.currentPage instanceof customer.view.Demands)){
+            var page = new customer.view.Demands({collection:app.collection.demands});
+            this.switchPage( page );
+        }else{
+            page = this.currentPage;
+        }
+        if( id ){
+            page.displayDemand( id );
+        }
     }
-    if( id ){
-        page.displayDemand( id );
-    }
-    
-    
 });
 
 
@@ -40,9 +42,12 @@ app.model.session.bind('change:user_id', function(session){
     if(app.model.user.id){
         app.model.user.fetch();
         _.each(app.collection, function(col){
-            console.log('yeah');
-            //col.reset();
+            col.reset();
         });
+        console.log(document.location.hash.toString(), app.model.user.id)
+        var togo = document.location.hash.toString();
+        app.router.main.navigate( '/', true );
+        app.router.main.navigate( togo , true );
     }else{
         app.model.user.logout();
     }
@@ -66,8 +71,9 @@ app.model.user.bind('change:company_id', function( user ){
  */
 //demands
 app.collection.demands = new core.collection.Demands();
-app.collection.demands.bind('add', function(d){console.log(d.id)});
-app.collection.demands.bind('reset', function(d){console.trace();console.log('reset')});
+app.collection.demands.bind('add', function(d){console.log('add', d.id)});
+app.collection.demands.bind('change ', function(d){console.log('change', d.id)});
+app.collection.demands.bind('reset', function(d){console.log('reset')});
 
 
 

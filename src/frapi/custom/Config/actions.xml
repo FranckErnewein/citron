@@ -23,8 +23,6 @@
    <public>1</public>
    <route>api/company/:company_id/demands</route>
    <hash>860b5e9de65b78965a2f10602542d06f38cd5520</hash>
-   <description></description>
-   <parameters></parameters>
   </action>
   <action>
    <name>Session_user</name>
@@ -90,6 +88,15 @@
    <public>1</public>
    <route>api/articles</route>
    <hash>ebde0f31efb54ed24a6aad3f678dd69f6f4acf5f</hash>
+  </action>
+  <action>
+   <name>Company_id_demands_id</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description></description>
+   <route>api/company/:company_id/demands/:demand_id</route>
+   <parameters></parameters>
+   <hash>cc6e0b43afff6a62b3510aa733850f3587c0bd7b</hash>
   </action>
  </actions>
 </frapi-config>

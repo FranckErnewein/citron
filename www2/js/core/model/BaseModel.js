@@ -3,7 +3,9 @@ core.model.BaseModel = Backbone.Model.extend({
     urlParams:{},
 
     url:function(){
-       var url = 'http://'+document.location.hostname+':8888/api/'  + this.uri;
+
+       var url = (this.collection)? this.collection.url() : 'http://'+document.location.hostname+':8888/api/' + this.uri;
+
        if(this.id){
            url += '/' + this.id ;
        }
