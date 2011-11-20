@@ -18,11 +18,13 @@
    <hash>75c2cd39ecbf391ba592eb10e7affee9ad56d64f</hash>
   </action>
   <action>
-   <name>Users_id_demands</name>
+   <name>Company_id_demands</name>
    <enabled>1</enabled>
    <public>1</public>
-   <route>api/users/:user_id/demands</route>
+   <route>api/company/:company_id/demands</route>
    <hash>860b5e9de65b78965a2f10602542d06f38cd5520</hash>
+   <description></description>
+   <parameters></parameters>
   </action>
   <action>
    <name>Session_user</name>
@@ -86,9 +88,7 @@
    <name>Articles</name>
    <enabled>1</enabled>
    <public>1</public>
-   <description></description>
    <route>api/articles</route>
-   <parameters></parameters>
    <hash>ebde0f31efb54ed24a6aad3f678dd69f6f4acf5f</hash>
   </action>
  </actions>

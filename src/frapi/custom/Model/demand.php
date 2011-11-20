@@ -4,6 +4,7 @@ class demand extends BaseModel implements IModel{
 
     public $id;
     public $user_id;
+    public $company_id;
     public $reference;
     public $title;
     public $creation_date;
@@ -18,6 +19,7 @@ class demand extends BaseModel implements IModel{
 
         $this->id = new Id();
         $this->user_id = new Id();
+        $this->company_id = new Id();
         $this->reference = new String();
         $this->title = new String();
         $this->creation_date = new Date();

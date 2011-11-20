@@ -40,15 +40,15 @@ app.model.session.bind('change:user_id', function(session){
     if(app.model.user.id){
         app.model.user.fetch();
         _.each(app.collection, function(col){
-            col.reset();
+            console.log('yeah');
+            //col.reset();
         });
-        app.collection.demands.setUriParam('user_id', session.get('user_id'));
-        app.collection.demands.merge();
     }else{
         app.model.user.logout();
     }
-
 });
+
+
 
 
 //user
@@ -56,13 +56,18 @@ app.model.user = new core.model.User();
 app.model.user.bind('logout', function(user){
     app.model.session.clear();
 });
+app.model.user.bind('change:company_id', function( user ){
+    app.collection.demands.setUriParam('company_id', user.get('company_id'));
+    app.collection.demands.merge();
+});
 
 /**
  * Collection
  */
 //demands
 app.collection.demands = new core.collection.Demands();
-
+app.collection.demands.bind('add', function(d){console.log(d.id)});
+app.collection.demands.bind('reset', function(d){console.trace();console.log('reset')});
 
 
 

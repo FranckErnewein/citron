@@ -128,7 +128,25 @@ class Frapi_Controller_Api extends Frapi_Controller_Main
             $action = 'execute' . ucfirst(strtolower($method));
         }
 
-        $response = $this->actionContext->setAction($action)->$action();
+        if(isset($_SESSION['user_id'])){
+            $userManager = new ModelManager('user');
+            $user = $userManager->read( array( 'clause' => array('id' => $_SESSION['user_id'] )));
+
+            $params = $this->actionContext->getParams();
+            if(isset( $params['company_id'] ) && $params['company_id'] != $user['company_id'] ){
+                throw new Frapi_Error( 'BAD_USER', 'your are not allowed to consult this ressource', 403 );
+            }
+            
+            
+            //echo $this->actionContext->params;
+        }
+
+        
+        $action_class = $this->actionContext->setAction($action);
+        $action_class->user = $user;
+        $response = $action_class->$action();
+
+        
 
         // Make sure we use a Frapi_Response.
         if (!$response instanceof Frapi_Response) {
