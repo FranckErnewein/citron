@@ -1,15 +1,29 @@
 core.model.BaseModel = Backbone.Model.extend({
 
-    urlParams:{},
-
     url:function(){
 
-       var url = (this.collection)? this.collection.url() : 'http://'+document.location.hostname+':8888/api/' + this.uri;
+        var url;
 
-       if(this.id){
-           url += '/' + this.id ;
-       }
-       return url + '.json';
+        if(this.collection){
+            url = this.collection.url();
+        }else{
+            var uri = this.uri;
+            _.each(this.uriParams, function( param , key ){
+                uri = uri.replace( ':'+key, param );
+            });
+            url = 'http://'+document.location.hostname+':8888/api/' + uri;
+        }
+
+        if(this.id){
+            if( url[url.length-1] != '/') url += '/';
+            url += this.id ;
+        }
+        return url + '.json';
+    },
+    
+    setUriParam:function(key, value){
+        if(!this.uriParams) this.uriParams = {};
+        this.uriParams[key] = value;
     },
 
 

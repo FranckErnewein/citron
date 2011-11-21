@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
     
     <meta name="viewport" content="width=940, initial-scale=1.0">
-	<title>Admin</title>
+	<title>/////////</title>
 	<link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/style.css" />
 
@@ -24,11 +24,13 @@
     <script src="js/core/model/Demand.js"></script>
     <script src="js/core/model/Offer.js"></script>
     <script src="js/core/model/Article.js"></script>
+    <script src="js/customer/model/Demand.js"></script>
 
     <script src="js/core/collection/BaseCollection.js"></script>
     <script src="js/core/collection/Demands.js"></script>
     <script src="js/core/collection/Offers.js"></script>
     <script src="js/core/collection/Articles.js"></script>
+    <script src="js/customer/collection/Demands.js"></script>
 
     <script src="js/core/router/BaseRouter.js"></script>
     <script src="js/customer/router/Main.js"></script>

@@ -11,7 +11,6 @@ customer.view.DemandSearchResult = core.view.BaseView.extend({
         });
 
         this.collection.bind('remove', function(){
-            console.log('destroy')
             self.render();
         })
 

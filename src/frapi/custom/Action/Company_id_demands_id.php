@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Action Company_id_demands 
+ * Action Company_id_demands_id 
  * 
  * Array
  * 
  * @link http://getfrapi.com
  * @author Frapi <frapi@getfrapi.com>
- * @link api/company/:company_id/demands
+ * @link api/company/:company_id/demands/:demand_id
  */
-class Action_Company_id_demands extends Frapi_Action implements Frapi_Action_Interface
+class Action_Company_id_demands_id extends Frapi_Action implements Frapi_Action_Interface
 {
 
     /**
@@ -58,22 +58,22 @@ class Action_Company_id_demands extends Frapi_Action implements Frapi_Action_Int
      * 
      * @return array
      */
-    public function executeGet()
+        public function executeGet()
     {
-        $manager = new ModelManager('demand');
-        $this->data = $manager->read( array(
-            'clause' => array(
-                'company_id' => $this->user['company_id'] )
+        $m = new ModelManager('demand');
+        $this->data = $m->read( array(
+            'clause'=> array(
+                    'id' => $this->params['demand_id']
             )
-        );
+        ));
         return $this->toArray();
     }
 
     /**
      * Post Request Handler
-     * 
+     *
      * This method is called when a request is a POST
-     * 
+     *
      * @return array
      */
     public function executePost()
@@ -85,27 +85,32 @@ class Action_Company_id_demands extends Frapi_Action implements Frapi_Action_Int
 
     /**
      * Put Request Handler
-     * 
+     *
      * This method is called when a request is a PUT
-     * 
+     *
      * @return array
      */
     public function executePut()
     {
+        $m = new ModelManager('demand');
+        $this->data = $m->update( $this->params );
         return $this->toArray();
     }
 
     /**
      * Delete Request Handler
-     * 
+     *
      * This method is called when a request is a DELETE
-     * 
+     *
      * @return array
      */
     public function executeDelete()
     {
+        $m = new ModelManager('demand');
+        $m->delete( $this->params['demand_id'] );
         return $this->toArray();
     }
+
 
     /**
      * Head Request Handler

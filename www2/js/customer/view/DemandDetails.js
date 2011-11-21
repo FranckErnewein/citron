@@ -12,7 +12,6 @@ customer.view.DemandDetails = core.view.BaseView.extend({
 
         this.model.bind('destroy', function(model, method){
             $(self.el).empty();
-            console.log('???')
             model.collection.remove(model);
         });
 

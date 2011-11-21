@@ -23,9 +23,12 @@ customer.view.Demands = core.view.BaseView.extend({
         });
 
         $('.add-demand', this.el).click(function(e){
-            var newDemand = new core.model.Demand({
-               'user_id':app.model.user.id
+            var newDemand = new customer.model.Demand({
+               'user_id':app.model.user.id,
+               'company_id':app.model.user.get('company_id')
             });
+            newDemand.setUriParam('company_id', app.model.user.get('company_id'));
+
             newDemand.bind('ajax:success', function(model, method){
                 if(method == 'create'){
                     self.collection.add(newDemand);
@@ -40,9 +43,8 @@ customer.view.Demands = core.view.BaseView.extend({
             }).attach().show();
 
             return false;
-        })
+        });
 
-        
         this.searchResult.render();
     },
 

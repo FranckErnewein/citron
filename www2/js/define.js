@@ -70,11 +70,11 @@ Backbone.sync = function(method, model, options){
         var first = true;
         _.each( model.toJSON(), function( param, key ){
             params.url += (first)? '?' : '&';
-            params.url += key+'='+param+'&';
+            params.url += key+'='+param;
             first = false;
         });
     }
-
+    
     var query = $.ajax(params);
 
     var xhrModel = new Backbone.Model(params);
@@ -83,7 +83,7 @@ Backbone.sync = function(method, model, options){
     model.trigger('ajax:start', model);
     query.always(function( xhr ){
         app.xhr.remove( xhrModel );
-        console.log(type , model.url() ,' sent', params.data , ' - xhr',  xhr );
+        console.log(type , model.url() ,' sent', (method == 'update')? params.url : params.data , ' - xhr',  xhr );
     });
 
     query.done(function( xhr ){
