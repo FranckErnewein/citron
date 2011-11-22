@@ -143,7 +143,9 @@ class Frapi_Controller_Api extends Frapi_Controller_Main
 
         
         $action_class = $this->actionContext->setAction($action);
-        $action_class->user = $user;
+        if(isset($user)){
+            $action_class->user = $user;
+        }
         $response = $action_class->$action();
 
         

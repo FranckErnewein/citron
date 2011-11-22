@@ -16,8 +16,9 @@ customer.view.DemandDetails = core.view.BaseView.extend({
         });
 
 
-        this.articles = new core.collection.Articles();
+        this.articles = new customer.collection.Articles();
         this.articles.setUriParam('demand_id', this.model.id );
+        this.articles.setUriParam('company_id', app.model.user.get('company_id') );
 
 
     },

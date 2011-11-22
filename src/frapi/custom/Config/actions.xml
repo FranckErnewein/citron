@@ -93,10 +93,31 @@
    <name>Company_id_demands_id</name>
    <enabled>1</enabled>
    <public>1</public>
-   <description></description>
    <route>api/company/:company_id/demands/:demand_id</route>
-   <parameters></parameters>
    <hash>cc6e0b43afff6a62b3510aa733850f3587c0bd7b</hash>
+  </action>
+  <action>
+   <name>Company_id_demands_id_articles</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/company/:company_id/demands/:demand_id/articles/</route>
+   <hash>2d5f9fb90e4681af4395b13f0f78a61cf5dea935</hash>
+  </action>
+  <action>
+   <name>Company_id_demands_id_articles_id</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/company/:company_id/demands/:demand_id/articles/:article_id</route>
+   <hash>ecc345a9b549543d0f631231acef3ea2728c6f70</hash>
+  </action>
+  <action>
+   <name>Company_id</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description></description>
+   <route>api/company/:id</route>
+   <parameters></parameters>
+   <hash>0b1e5d481f5ce4d118d4b826be0c6cb784323b76</hash>
   </action>
  </actions>
 </frapi-config>

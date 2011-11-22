@@ -25,12 +25,14 @@
     <script src="js/core/model/Offer.js"></script>
     <script src="js/core/model/Article.js"></script>
     <script src="js/customer/model/Demand.js"></script>
+    <script src="js/customer/model/Article.js"></script>
 
     <script src="js/core/collection/BaseCollection.js"></script>
     <script src="js/core/collection/Demands.js"></script>
     <script src="js/core/collection/Offers.js"></script>
     <script src="js/core/collection/Articles.js"></script>
     <script src="js/customer/collection/Demands.js"></script>
+    <script src="js/customer/collection/Articles.js"></script>
 
     <script src="js/core/router/BaseRouter.js"></script>
     <script src="js/customer/router/Main.js"></script>
