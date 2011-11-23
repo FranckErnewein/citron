@@ -12,10 +12,11 @@ core.view.UserBar = core.view.BaseView.extend({
         });
 
         this.bind('render', function(){
-            self.$('.dropdown').click(function(){
-                $(this).toggleClass('open');
+            self.$('.dropdown-toggle').click(function(){
+                $(self.el).toggleClass('open');
                 return false;
-            }).mouseleave(function(){
+            })
+            self.$('.dropdown').mouseleave(function(){
                 $(this).removeClass('open');
             });
 

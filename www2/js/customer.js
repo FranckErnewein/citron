@@ -24,6 +24,12 @@ app.router.main.route(/demands\/?(\d*)?/, 'demands', function( id ){
     }
 });
 
+app.router.main.route(/mycompany/, 'mycompany', function(){
+    if(app.model.company){
+        this.switchPage( new customer.view.MyCompany({model:app.model.company}));
+    }
+});
+
 
 
 /**
@@ -40,6 +46,9 @@ app.model.session.bind('change:user_id', function(session){
     if(app.model.user.id){
         app.model.user.fetch().done(function(){
             var togo = document.location.hash.toString();
+            app.model.company = new core.model.Company({'id':app.model.user.get('company_id')});
+            app.model.company.fetch();
+            
             app.router.main.navigate( '/', true );
             app.router.main.navigate( togo , true );
         });

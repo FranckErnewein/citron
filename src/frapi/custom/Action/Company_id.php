@@ -61,7 +61,11 @@ class Action_Company_id extends Frapi_Action implements Frapi_Action_Interface
     public function executeGet()
     {
         $m = new ModelManager('company');
-        $this->data = $m->read( $this->params['id'] );
+        $this->data = $m->read( array(
+            'clause'=> array(
+                    'id' => $this->params['id']
+            )
+        ));
         return $this->toArray();
     }
 
@@ -74,8 +78,6 @@ class Action_Company_id extends Frapi_Action implements Frapi_Action_Interface
      */
     public function executePost()
     {
-        $m = new ModelManager('company');
-        $this->data = $m->update( $this->params['id'] );
         return $this->toArray();
     }
 
@@ -88,6 +90,8 @@ class Action_Company_id extends Frapi_Action implements Frapi_Action_Interface
      */
     public function executePut()
     {
+        $m = new ModelManager('company');
+        $this->data = $m->update( $this->params );
         return $this->toArray();
     }
 

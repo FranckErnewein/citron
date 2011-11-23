@@ -24,6 +24,7 @@
     <script src="js/core/model/Demand.js"></script>
     <script src="js/core/model/Offer.js"></script>
     <script src="js/core/model/Article.js"></script>
+    <script src="js/core/model/Company.js"></script>
     <script src="js/customer/model/Demand.js"></script>
     <script src="js/customer/model/Article.js"></script>
 
@@ -50,6 +51,7 @@
     <script src="js/customer/view/DemandDetails.js"></script>
     <script src="js/customer/view/DemandSearchResult.js"></script>
     <script src="js/customer/view/Articles.js"></script>
+    <script src="js/customer/view/MyCompany.js"></script>
 
 
     <script src="js/customer.js"></script>

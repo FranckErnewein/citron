@@ -14,7 +14,7 @@ table tfoot td{border-top:1px solid #ddd;}
 .cols33-65{}
 .col33p{width:32%;float:left;}
 .col65p{width:63%;float:right;}
-.col33p,.col65p{background:#fff;padding:1%;box-shadow:0 0 8px rgba(0,0,0,0.1);}
+.col33p,.col65p, .box-content{background:#fff;padding:1%;box-shadow:0 0 8px rgba(0,0,0,0.1);}
 
 /* utils */
 .clr{clear:both;}

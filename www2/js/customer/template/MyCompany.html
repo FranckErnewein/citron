@@ -1,0 +1,50 @@
+<div id="mycompany" class="box-content">
+    <form>
+        <br />
+        <fieldset>
+             <legend>Informations concernant ma société :</legend>
+             <div class="clearfix">
+                <label>Nom</label>
+                <div class="input">
+                    <input class="xlarge field" name="name" size="30" type="text" value="<%= this.model.get('name') %>" />
+                </div>
+            </div>
+            <div class="clearfix">
+                <label>Numéro SIRET</label>
+                <div class="input">
+                    <input class="xlarge field" name="siret" size="30" type="text" value="<%= this.model.get('siret') %>" />
+                </div>
+            </div>
+            <div class="clearfix">
+                <label>Email</label>
+                <div class="input">
+                    <input class="xlarge field" name="mail" size="30" type="text" value="<%= this.model.get('mail') %>" />
+                </div>
+            </div>
+            <div class="clearfix">
+                <label>Téléphone</label>
+                <div class="input">
+                    <input class="xlarge field" name="phone" size="30" type="text" value="<%= this.model.get('phone') %>" />
+                </div>
+            </div>
+            <div class="clearfix">
+                <label>Fax</label>
+                <div class="input">
+                    <input class="xlarge field" name="fax" size="30" type="text" value="<%= this.model.get('fax') %>" />
+                </div>
+            </div>
+            <div class="clearfix">
+                <label>Adresse</label>
+                <div class="input">
+                    <textarea class="xlarge field" name="address" row="3"><%= this.model.get('address') %></textarea>
+                </div>
+            </div>
+            <div class="actions">
+                <input type="submit" class="save-btn btn primary" value="Sauvegarder">
+            </div>
+        </fieldset>
+
+
+    </form>
+
+</div>
