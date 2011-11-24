@@ -26,6 +26,7 @@ customer.view.DemandSearchResult = core.view.BaseView.extend({
         });
 
         core.view.BaseView.prototype.render.call(this);
+
     },
 
     setFilter:function(value){
@@ -35,6 +36,12 @@ customer.view.DemandSearchResult = core.view.BaseView.extend({
 
     getFilter:function(){
         return this.filter;
+    },
+
+    highlight:function( id ){
+        console.log(id);
+        $('.current', this.el).removeClass('current');
+        $('#demand-'+id, this.el).addClass('current');
     }
 
 });

@@ -32,6 +32,8 @@
     <script src="js/core/collection/Demands.js"></script>
     <script src="js/core/collection/Offers.js"></script>
     <script src="js/core/collection/Articles.js"></script>
+    <script src="js/core/collection/Users.js"></script>
+    <script src="js/core/collection/UsersCompany.js"></script>
     <script src="js/customer/collection/Demands.js"></script>
     <script src="js/customer/collection/Articles.js"></script>
 
@@ -42,6 +44,7 @@
     <script src="js/core/view/Panel.js"></script>
     <script src="js/core/view/DeletePanel.js"></script>
     <script src="js/core/view/FormPanel.js"></script>
+    <script src="js/core/view/ModelForm.js"></script>
     <script src="js/core/view/Login.js"></script>
     <script src="js/core/view/DemandFormPanel.js"></script>
     <script src="js/core/view/ArticleFormPanel.js"></script>
@@ -52,6 +55,7 @@
     <script src="js/customer/view/DemandSearchResult.js"></script>
     <script src="js/customer/view/Articles.js"></script>
     <script src="js/customer/view/MyCompany.js"></script>
+    <script src="js/customer/view/MyProfile.js"></script>
 
 
     <script src="js/customer.js"></script>
@@ -67,7 +71,6 @@
 				<ul>
 					<li><a href="#demands">Mes demandes</a></li>
                     <li><a href="#sellers">Mes collaborateurs</a></li>
-                    <li><a href="#mails">Historique des relances</a></li>
 				</ul>
 
                 <ul class="nav secondary-nav"></ul>

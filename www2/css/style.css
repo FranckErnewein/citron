@@ -36,7 +36,7 @@ table tfoot td{border-top:1px solid #ddd;}
 .demand-search-item h6{margin:0;padding:0;line-height:20px;}
 .demand-search-item a{position:absolute;top:0;left:0;height:100%;width:100%;}
 .demand-search-item a:hover{background:url(../img/icon/br_next_icon&16.png) no-repeat right center;}
-.demand-search-item a.on, .demand-search-item a:focus{background:rgba(0,0,0,0.02) url(../img/icon/br_next_icon&16.png) no-repeat right center;}
+.demand-search-item.current a, .demand-search-item a:focus{background:rgba(0,0,0,0.02) url(../img/icon/br_next_icon&16.png) no-repeat right center;}
 
 .page{margin-top:50px;}
 

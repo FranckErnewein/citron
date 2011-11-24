@@ -9,6 +9,8 @@ class user extends BaseModel implements IModel{
     public $password;
     public $creation_date;
     public $company_id;
+    public $firstname;
+    public $lastname;
 
     public function __construct( $data=null ){
 
@@ -19,6 +21,8 @@ class user extends BaseModel implements IModel{
         $this->password = new Password();
         $this->creation_date = new Date();
         $this->company_id = new Id();
+        $this->firstname = new String();
+        $this->lastname = new String();
 
 
         if($data != null){

@@ -5,9 +5,11 @@ customer.view.Demands = core.view.BaseView.extend({
 
     initialize:function(){
         var self = this;
-        this.collection.bind('add', function(){
-            
+        this.collection.bind('current', function( demand ){
+            self.searchResult.highlight( demand.id );
         });
+
+
     },
 
     onRender:function(){
@@ -16,7 +18,11 @@ customer.view.Demands = core.view.BaseView.extend({
             el:this.$('#demand-search-result'),
             collection:this.collection
         });
-        this.searchResult.render();
+
+        this.searchResult.bind('render', function(){
+           self.searchResult.highlight( self.currentId );
+        });
+        
 
         $('input', this.el).keyup(function(){
             self.searchResult.setFilter( this.value );
@@ -50,10 +56,13 @@ customer.view.Demands = core.view.BaseView.extend({
 
 
     displayDemand:function( id ){
+        this.currentId = id;
         if(this.demand){
             this.demand.remove();
         }
-        this.demand = new customer.view.DemandDetails({ model:this.collection.getAnyway(id) });
+        var model = this.collection.getAnyway(id);
+        model.trigger('current', model);
+        this.demand = new customer.view.DemandDetails({ model:model });
         $('#demands-details', this.el).append( this.demand.render().el ).hide().fadeIn();
         
     }

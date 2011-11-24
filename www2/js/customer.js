@@ -2,8 +2,6 @@
  * ROUTER
  */
 
-
-
 app.router.main = new customer.router.Main();
 
 app.router.main.route('home', 'home', function(){
@@ -26,9 +24,17 @@ app.router.main.route(/demands\/?(\d*)?/, 'demands', function( id ){
 
 app.router.main.route(/mycompany/, 'mycompany', function(){
     if(app.model.company){
-        this.switchPage( new customer.view.MyCompany({model:app.model.company}));
+        var users = new core.collection.UsersCompany();
+        users.setUriParam('company_id', app.model.company.id);
+        this.switchPage( new customer.view.MyCompany({model:app.model.company, collection:users}));
+        users.merge();
     }
 });
+app.router.main.route(/myprofile/, 'myprofile', function(){
+    if(app.model.user){
+        this.switchPage( new customer.view.MyProfile({ model:app.model.user }));
+    }
+})
 
 
 

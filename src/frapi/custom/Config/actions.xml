@@ -114,10 +114,17 @@
    <name>Company_id</name>
    <enabled>1</enabled>
    <public>1</public>
-   <description></description>
    <route>api/company/:id</route>
-   <parameters></parameters>
    <hash>0b1e5d481f5ce4d118d4b826be0c6cb784323b76</hash>
+  </action>
+  <action>
+   <name>Company_id_users</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description></description>
+   <route>api/company/:company_id/users/</route>
+   <parameters></parameters>
+   <hash>cf923bf476413a4946e46fff71416eafda7860a1</hash>
   </action>
  </actions>
 </frapi-config>
