@@ -15,12 +15,14 @@ core.view.FormPanel = core.view.Panel.extend({
            e.stopPropagation();
            var data = {};
            $('.field', this).each(function(){
-                data[this.name] = this.value;
+                data[this.name] = $(this).val();
+                console.log(data[this.name], this.name);
            });
-           self.model.set(data);
-           self.model.save().done(function(){
+           console.log(data);
+           self.model.save(data).done(function(){
                self.hide();
            });
+           
            return false;
         });
 

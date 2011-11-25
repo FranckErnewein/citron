@@ -39,7 +39,6 @@ customer.view.DemandSearchResult = core.view.BaseView.extend({
     },
 
     highlight:function( id ){
-        console.log(id);
         $('.current', this.el).removeClass('current');
         $('#demand-'+id, this.el).addClass('current');
     }

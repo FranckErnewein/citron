@@ -13,8 +13,9 @@ core.model.Article = core.model.BaseModel.extend({
         if( this.get('demand_id') ){
             this.setUriParam('demand_id', this.get('demand_id'));
         }
-
     }
+
+    
 
 });
 

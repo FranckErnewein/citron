@@ -3,8 +3,8 @@
 <% _.each(this.filteredResult, function( demand, i ){ %>
     
     <div class="demand-search-item" id="demand-<%= demand.id %>">
-        <h5><%= demand.get('title') %></h5>
-        <span class="label success"><%= demand.get('reference')%></span>
+        <h5><%= demand.escape('title') %></h5>
+        <span class="label success"><%= demand.escape('reference')%></span>
         <a href="#demands/<%= demand.id %>"> </a>
     </div>
 <% }); %>

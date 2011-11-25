@@ -63,7 +63,31 @@ core.model.BaseModel = Backbone.Model.extend({
             }
         });
         return detected;
-    }
+    }/*,
+
+    get:function( fieldName ){
+        if(typeof this['get_'+fieldName] == 'function'){
+            return this['get_'+fieldName]();
+        }else{
+            return Backbone.Model.prototype.get.call(this, fieldName);
+        }
+    },
+
+    set:function( data ){
+        var _data = data;
+        var unmodifiedData = {};
+        _.each(_data, function(fieldName, value){
+            if(typeof this['set_'+fieldName] == 'function'){
+                this['set_'+fieldName]();
+            }else{
+                unmodifiedData[fieldName] = value;
+            }
+        });
+
+        Backbone.Model.prototype.set.call(this, unmodifiedData);
+        
+    }*/
+
 
 });
 
