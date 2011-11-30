@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Action Company_id_users 
+ * Action Company_id_tags_id 
  * 
  * Array
  * 
  * @link http://getfrapi.com
  * @author Frapi <frapi@getfrapi.com>
- * @link api/company/:company_id/users/
+ * @link api/company/:company_id/tags/:id
  */
-class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Interface
+class Action_Company_id_tags_id extends Frapi_Action implements Frapi_Action_Interface
 {
 
     /**
@@ -60,10 +60,10 @@ class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Inter
      */
     public function executeGet()
     {
-        $m = new ModelManager('user');
+        $m = new ModelManager('tag');
         $this->data = $m->read( array(
             'clause'=> array(
-                    'company_id' => $this->params['company_id']
+                    'id' => $this->params['id']
             )
         ));
         return $this->toArray();
@@ -78,8 +78,6 @@ class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Inter
      */
     public function executePost()
     {
-        $m = new ModelManager('user');
-        $this->data = $m->create( $this->params );
         return $this->toArray();
     }
 
@@ -104,6 +102,8 @@ class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Inter
      */
     public function executeDelete()
     {
+        $m = new ModelManager('tag');
+        $m->delete( $this->params['id'] );
         return $this->toArray();
     }
 

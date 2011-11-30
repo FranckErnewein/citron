@@ -29,8 +29,34 @@
               <input class="mini field" name="city_code" size="16" type="text" value="<%= this.model.get('city_code') %>" />
             </div>
           </div>
-          </fieldset>
+        </fieldset>
+        <fieldset>
+          <legend>Tags</legend>
+          <div class="clearfix">
+            <label>Tags associés</label>
+            <div class="input">
+              <ul class="inputs-list">
+                  <% this.collection.each(function(tag, i){ %>
+                  <li>
+                      <label>
+                          <input type="checkbox" name="tags" value="<%= tag.id %>" />
+                          <span><%= tag.escape('label') %></span>
+                      </label>
+                  </li>
+                  <% }); %>
+              </ul>
+            </div>
+          </div>
+          <div class="clearfix" id="add_new_tag">
+            <label>Nouveau tag</label>
+            <div class="input">
+              <input class="span3 field" name="city" size="16" type="text"  /> <a href="#"><img src="img/icon/round_plus_icon&16.png"/></a>
+            </div>
+          </div>
+
+        </fieldset>
       </div>
+
       <div class="modal-footer">
         <input type="submit" class="btn primary" value="<%= (this.model.isNew())? 'Ajouter cette Demande' : 'enregistrer' %>"/>
         <a href="#demands/<%= this.model.id %>" class="btn cancel">Annuler</a>

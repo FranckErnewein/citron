@@ -51,8 +51,29 @@ customer.view.Articles = core.view.BaseView.extend({
             }
         });
         new core.view.ArticleFormPanel({ model:newArticle }).attach().show();
-        
      });
+
+
+     $('form', this.el).submit(function(e){
+
+         var data = {demand_id:self.collection.uriParams.demand_id};
+         $('.add_line .field', this).each(function(){
+             data[this.name] = this.value;
+         });
+         var a = new customer.model.Article( data );
+         
+         a.setUriParam('company_id', self.collection.uriParams['company_id']);
+
+         a.save().done(function(){
+            self.collection.add( a );
+            self.render();
+         });  
+
+         return false;
+     });
+
+     $('.add_line .field', this.el).eq(0).focus();
+
    }
 
 });

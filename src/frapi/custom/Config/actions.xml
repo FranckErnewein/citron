@@ -121,10 +121,24 @@
    <name>Company_id_users</name>
    <enabled>1</enabled>
    <public>1</public>
-   <description></description>
    <route>api/company/:company_id/users/</route>
-   <parameters></parameters>
    <hash>cf923bf476413a4946e46fff71416eafda7860a1</hash>
+  </action>
+  <action>
+   <name>Company_id_tags_id</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/company/:company_id/tags/:id</route>
+   <hash>d649951fc9867d1e878efa76464e8d4eb965fea1</hash>
+  </action>
+  <action>
+   <name>Company_id_tags</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description></description>
+   <route>api/company/:company_id/tags</route>
+   <parameters></parameters>
+   <hash>ae7f1ccb476d68cf45130fb0d3aad757f84f1ec7</hash>
   </action>
  </actions>
 </frapi-config>

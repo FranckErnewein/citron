@@ -1,3 +1,4 @@
+<form>
 <table class="zebra-striped">
     <thead>
         <th width="18"> </th>
@@ -31,11 +32,29 @@
             }
         %>
 
+        <tr class="add_line">
+            <td><input type="image" src="img/icon/round_plus_icon&16.png" style="width:auto;"/></td>
+            <td>
+                <input class="xlarge field" type="text" name="name" />
+            </td>
+            <td class="txt-r"><input class="mini field" type="text" name="quantity" /></td>
+            <td class="txt-r"><input class="mini field" type="text" name="price_need" /></td>
+            <td><input type="image" src="img/icon/round_plus_icon&16.png" style="width:auto;"/></td>
+        </tr>
+
     </tbody>
     <tfoot>
-        <td colspan="5"> <a href="#" class="btn add primary fl-r">Ajouter un article</a><%= this.collection.size() %> Article(s)</td>
+        <tr>
+            <td colspan="5">
+                <!--
+                <a href="#" class="btn add primary fl-r">Ajouter un article</a>
+                -->
+                <%= this.collection.size() %> Article(s)
+            </td>
+        </tr>
     </tfoot>
 
 
 
 </table>
+</form>

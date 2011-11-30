@@ -78,6 +78,9 @@ app.model.user.bind('logout', function(user){
 app.model.user.bind('change:company_id', function( user ){
     app.collection.demands.setUriParam('company_id', user.get('company_id'));
     app.collection.demands.merge();
+
+    app.collection.tags.setUriParam('company_id', user.get('company_id'));
+    app.collection.tags.merge();
 });
 
 /**
@@ -86,7 +89,8 @@ app.model.user.bind('change:company_id', function( user ){
 //demands
 app.collection.demands = new customer.collection.Demands();
 
-
+//tags
+app.collection.tags = new customer.collection.Tags();
 
 $(document).ready(function(){
     /**

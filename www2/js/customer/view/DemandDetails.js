@@ -34,6 +34,7 @@ customer.view.DemandDetails = core.view.BaseView.extend({
         this.$('.edit').click(function(e){
             e.stopPropagation();
             new core.view.DemandFormPanel({
+                collection:app.collection.tags,
                 model:self.model
             }).attach().show();
             return false;

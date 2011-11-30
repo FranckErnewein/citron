@@ -6,23 +6,23 @@
     </h3>
     
     <form>
-            <div class="fl-l">
-                <address>
-                    <%= this.model.get('city_code') %><br />
-                    <%= this.model.get('city') %>
-                </address>
-            </div>
-            <div class="fl-r">
-                <p class="txt-r">
-                    Crée : <%= this.model.get('creation_date') %><br />
-                    Fin : <%= this.model.get('end_date') %>
-                </p>
-            </div>
+        <div class="fl-l">
+            <address>
+                <%= this.model.get('city_code') %><br />
+                <%= this.model.get('city') %>
+            </address>
+        </div>
+        <div class="fl-r">
+            <p class="txt-r">
+                Crée : <%= this.model.get('creation_date') %><br />
+                Fin : <%= this.model.get('end_date') %>
+            </p>
+        </div>
         <div class="clr"></div>
-
+    </form>
         <h5>Liste des articles :</h5>
         <div id="article-list"></div>
-    </form>
+
     
     
     

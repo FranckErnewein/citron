@@ -1,37 +1,37 @@
 <?php
 
 /**
- * Action Company_id_users 
- * 
+ * Action Company_id_tags
+ *
  * Array
- * 
+ *
  * @link http://getfrapi.com
  * @author Frapi <frapi@getfrapi.com>
- * @link api/company/:company_id/users/
+ * @link api/company/:company_id/tags
  */
-class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Interface
+class Action_Company_id_tags extends Frapi_Action implements Frapi_Action_Interface
 {
 
     /**
      * Required parameters
-     * 
+     *
      * @var An array of required parameters.
      */
     protected $requiredParams = array();
 
     /**
      * The data container to use in toArray()
-     * 
+     *
      * @var A container of data to fill and return in toArray()
      */
     private $data = array();
 
     /**
      * To Array
-     * 
-     * This method returns the value found in the database 
+     *
+     * This method returns the value found in the database
      * into an associative array.
-     * 
+     *
      * @return array
      */
     public function toArray()
@@ -41,9 +41,9 @@ class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Inter
 
     /**
      * Default Call Method
-     * 
+     *
      * This method is called when no specific request handler has been found
-     * 
+     *
      * @return array
      */
     public function executeAction()
@@ -53,41 +53,44 @@ class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Inter
 
     /**
      * Get Request Handler
-     * 
+     *
      * This method is called when a request is a GET
-     * 
+     *
      * @return array
      */
     public function executeGet()
     {
-        $m = new ModelManager('user');
-        $this->data = $m->read( array(
-            'clause'=> array(
-                    'company_id' => $this->params['company_id']
+        $manager = new ModelManager('tag');
+        $this->data = $manager->read( array(
+            'clause' => array(
+                'company_id' => $this->user['company_id'] )
             )
-        ));
+        );
         return $this->toArray();
     }
 
     /**
      * Post Request Handler
-     * 
+     *
      * This method is called when a request is a POST
-     * 
+     *
      * @return array
      */
     public function executePost()
     {
-        $m = new ModelManager('user');
+        $m = new ModelManager('tag');
+        //$this->params['company_id'] = $this->user['company_id'];
+        $this->params;
         $this->data = $m->create( $this->params );
+        
         return $this->toArray();
     }
 
     /**
      * Put Request Handler
-     * 
+     *
      * This method is called when a request is a PUT
-     * 
+     *
      * @return array
      */
     public function executePut()
@@ -97,9 +100,9 @@ class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Inter
 
     /**
      * Delete Request Handler
-     * 
+     *
      * This method is called when a request is a DELETE
-     * 
+     *
      * @return array
      */
     public function executeDelete()
@@ -109,9 +112,9 @@ class Action_Company_id_users extends Frapi_Action implements Frapi_Action_Inter
 
     /**
      * Head Request Handler
-     * 
+     *
      * This method is called when a request is a HEAD
-     * 
+     *
      * @return array
      */
     public function executeHead()

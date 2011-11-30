@@ -45,6 +45,7 @@ customer.view.Demands = core.view.BaseView.extend({
                 }
             });
             new core.view.DemandFormPanel({
+               collection:app.collection.tags,
                model:newDemand
             }).attach().show();
 

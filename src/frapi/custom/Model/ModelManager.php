@@ -46,8 +46,12 @@ class ModelManager {
     public function create( $data ){
         $values = '';
 
+        
+
         $ctr = $this->modelConstructor;
         $this->model = new $ctr( $data );
+
+        
 
         $sql = "
             INSERT INTO `" . $this->table . "` 
@@ -55,6 +59,7 @@ class ModelManager {
             VALUES
             (" . $this->getValuesString() . ")
         ";
+
 
         mysql_query($sql);
 
