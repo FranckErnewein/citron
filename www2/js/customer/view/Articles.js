@@ -22,6 +22,7 @@ customer.view.Articles = core.view.BaseView.extend({
    },
 
    onRender:function(){
+
      var self = this;
      $('a.edit', this.el).click(function(){
         var articleToEdit = self.collection.get( $(this).attr('href').replace('#', ''));

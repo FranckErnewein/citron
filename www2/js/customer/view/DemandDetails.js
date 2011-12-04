@@ -29,7 +29,7 @@ customer.view.DemandDetails = core.view.BaseView.extend({
         
         this.articlesView = new customer.view.Articles({el:$('#article-list', this.el), collection:this.articles });
         this.articlesView.render();
-        this.articles.fetch();
+        this.articles.merge();
 
         this.$('.edit').click(function(e){
             e.stopPropagation();
