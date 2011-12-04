@@ -26,6 +26,7 @@ core.collection.BaseCollection = Backbone.Collection.extend({
             }else{
                 self.mergeItem( result );
             }
+            self.trigger('ajax:success', self);
         });
     },
 
