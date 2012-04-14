@@ -1,0 +1,23 @@
+<div class="bg-modal bg-modal-close"></div>
+<form class="stacked-form">
+    <div class="modal">
+      <div class="modal-header">
+        <a href="#" class="close">x</a>
+        <h3><%= (this.model.isNew())? "Nouvel groupe" : "Groupe n° " + this.model.id %></h3>
+      </div>
+      <div class="modal-body">
+        <fieldset>
+          <div class="clearfix">
+            <label>Nom</label>
+            <div class="input">
+              <input class="xlarge field" name="name" size="30" type="text" value="<%= this.model.escape('name') %>" />
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <div class="modal-footer">
+        <input type="submit" class="btn primary" value="<%= (this.model.isNew())? 'Ajouter ce groupe' : 'enregistrer' %>"/>
+        <a href="#" class="btn cancel">Annuler</a>
+      </div>
+    </div>
+</form>

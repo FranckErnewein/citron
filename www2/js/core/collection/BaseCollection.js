@@ -5,7 +5,7 @@ core.collection.BaseCollection = Backbone.Collection.extend({
         _.each(this.uriParams, function( param , key ){
            uri = uri.replace( ':'+key, param );
         });
-        return 'http://'+document.location.hostname+':8888/api/' + uri;
+        return CONFIG.apiRoot + uri;
     },
 
     setUriParam:function(key, value){

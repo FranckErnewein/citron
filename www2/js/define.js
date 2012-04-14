@@ -1,3 +1,18 @@
+var CONFIG = {}
+
+if(document.location.hostname == 'localhost'){
+
+    CONFIG.apiRoot = 'http://localhost:8888/api/'
+
+}else{
+
+    CONFIG.apiRoot = 'http://'+document.location.hostname+'/api/'
+	if(document.location.hostname.toString().indexOf('192.168')>-1)
+    CONFIG.apiRoot = 'http://'+document.location.hostname+':8888/api/'
+
+}
+
+
 function Package(){
     this.model={};
     this.collection={};
@@ -54,12 +69,10 @@ Backbone.sync = function(method, model, options){
       dataType:     'json',
       contentType:  'application/x-www-form-urlencoded'
     }, options);
-
-
     
 
     if (!params.url) {
-      params.url = _getUrl(model);
+        params.url = _getUrl(model);
     }
 
     if(method == 'create'){
@@ -81,9 +94,10 @@ Backbone.sync = function(method, model, options){
     app.xhr.add(xhrModel);
 
     model.trigger('ajax:start', model);
+    
     query.always(function( xhr ){
         app.xhr.remove( xhrModel );
-        console.log(type , model.url() ,' sent', (method == 'update')? params.url : params.data , ' - xhr',  xhr );
+        console.log(type , model.url() ,' sent', (method == 'update')? params.url : params.data , ' - xhr',  xhr  );
     });
 
     query.done(function( xhr ){

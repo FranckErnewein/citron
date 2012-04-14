@@ -8,8 +8,11 @@ customer.view.MyCompany = core.view.ModelForm.extend({
         core.view.ModelForm.prototype.initialize.call(this);
 
         var self = this;
-        console.log(this.collection.size())
         this.collection.bind('add', function(){
+            self.render();
+        });
+
+        this.model.bind('change', function(){
             self.render();
         });
 

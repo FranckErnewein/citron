@@ -72,6 +72,14 @@ class ModelManager {
     
     public function read( $options = array() ){
 
+        $innerJoin = '';
+
+        if( isset( $options['relation'] ) ){
+            $innerJoin = 'INNER JOIN ' . $options['relation'][0] . ' ON `' . $this->table . '.id='.$options['relation'][0] . '.' . $this->table . '_id' ;
+        }
+
+        
+
         $clause = '';
 
         if( isset( $options['clause'] ) ){
@@ -93,23 +101,37 @@ class ModelManager {
             }
         }
 
+        
+
 
         $sql = "
             SELECT " . $this->getFieldsString() . "
-            FROM " . $this->table . "
+            " .(( isset($options['relation']) )? ", GROUP_CONCAT( DISTINCT ".$options['relation'][0].".".$options['relation'][1]." ORDER BY `".$this->table."`.id SEPARATOR ',')" : "" ). "
+            FROM `" . $this->table . "` 
+            " . $innerJoin . "
             " . $clause . "
         ";
 
-        //echo $sql;
+        //if(isset($options['relation'])) echo $sql;
         
         $sql_result = mysql_query( $sql );
+
         
+        
+         
+        return $this->sqlToArray( $sql_result );
+    }
+
+    public function sqlToArray( $sql_result ){
+
+        
+
         $result = null;
 
         if( mysql_num_rows($sql_result) > 1){
             //build array of items
             $result = array();
-            
+
             while($row = mysql_fetch_assoc( $sql_result )){
 
                 $ctr = $this->modelConstructor;
@@ -126,10 +148,10 @@ class ModelManager {
             //if no result => 404
             throw new Frapi_Error('NOT_FOUND', $this->table.' not found', 404);
         }
-        
-        //print_r($result);
+
         return $result;
     }
+
 
     public function update( $data ){
          
@@ -151,7 +173,7 @@ class ModelManager {
          $set = substr($set, 0, -2) . ' ';
 
          $sql = '
-            UPDATE '.$this->table.'
+            UPDATE `'.$this->table.'`
             SET '.$set.'
             WHERE id='.$id.'
          ';
@@ -183,7 +205,7 @@ class ModelManager {
     private function getFieldsString(){
         $string = '';
         foreach( $this->model as $key => $value ){
-            $string .= '`' . $key . '`, ';
+            $string .= '`' . $this->table . '`.`' . $key . '`, ';
         }
         $string = substr($string, 0, -2) . ' ';
         return $string;
@@ -214,6 +236,8 @@ class ModelManager {
         return $exp;
 
     }
+
+    
 
 }
 ?>

@@ -16,7 +16,6 @@ core.view.FormPanel = core.view.Panel.extend({
            var data = {};
            $('.field', this).each(function(){
                 data[this.name] = $(this).val();
-                
            });
            self.model.save(data).done(function(){
                self.hide();

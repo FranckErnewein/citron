@@ -13,26 +13,9 @@ core.view.ModelForm = core.view.BaseView.extend({
     },
 
     onRender:function(){
-        var self = this;
 
-        var fields = $('.field', this.el);
-
-        var data = {};
-
-        fields.bind('keyup change', function(){
-            $('.save-btn', this.el).removeClass('disabled').removeAttr('disabled');
-        });
-
-        $('form', this.el).submit(function(e){
-
-           fields.each(function(){
-                data[this.name] = this.value;
-           });
-
-           self.model.save(data);
-
-           return false;
-        })
+			
+		$('.my-company-form').backboneForm( this.model );
     }
 
 })

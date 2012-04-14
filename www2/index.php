@@ -11,14 +11,17 @@
 
     <!-- lib -->
 	<script type="text/javascript" src="js/lib/jquery-1.6.1.js"></script>
-	<script type="text/javascript" src="js/lib/underscore.js"></script>
-	<script type="text/javascript" src="js/lib/backbone.js"></script>
+	<script type="text/javascript" src="js/lib/underscore-1.3.1.js"></script>
+	<script type="text/javascript" src="js/lib/backbone-0.9.js"></script>
 
+	<!-- plugin -->
+	<script type="text/javascript" src="js/plugin/jquery.backboneForm.js"></script>
 
 	<script type="text/javascript" src="js/const.js"></script>
     <script type="text/javascript" src="js/define.js"></script>
 
     <script src="js/core/model/BaseModel.js"></script>
+    <script src="js/core/model/BaseRelation.js"></script>
     <script src="js/core/model/Session.js"></script>
     <script src="js/core/model/User.js"></script>
     <script src="js/core/model/Demand.js"></script>
@@ -26,20 +29,28 @@
     <script src="js/core/model/Article.js"></script>
     <script src="js/core/model/Company.js"></script>
     <script src="js/core/model/Tag.js"></script>
+    <script src="js/core/model/Group.js"></script>
+    <script src="js/core/model/DemandXTag.js"></script>
     <script src="js/customer/model/Demand.js"></script>
     <script src="js/customer/model/Article.js"></script>
     <script src="js/customer/model/Tag.js"></script>
+    <script src="js/customer/model/DemandXTag.js"></script>
 
     <script src="js/core/collection/BaseCollection.js"></script>
+    <script src="js/core/collection/BaseRelations.js"></script>
     <script src="js/core/collection/Demands.js"></script>
     <script src="js/core/collection/Offers.js"></script>
     <script src="js/core/collection/Articles.js"></script>
     <script src="js/core/collection/Users.js"></script>
     <script src="js/core/collection/UsersCompany.js"></script>
     <script src="js/core/collection/Tags.js"></script>
+    <script src="js/core/collection/DemandsXTags.js"></script>
     <script src="js/customer/collection/Demands.js"></script>
     <script src="js/customer/collection/Articles.js"></script>
     <script src="js/customer/collection/Tags.js"></script>
+    <script src="js/customer/collection/DemandsXTags.js"></script>
+    <script src="js/customer/collection/Contacts.js"></script>
+    <script src="js/customer/collection/Groups.js"></script>
 
     <script src="js/core/router/BaseRouter.js"></script>
     <script src="js/customer/router/Main.js"></script>
@@ -52,6 +63,7 @@
     <script src="js/core/view/Login.js"></script>
     <script src="js/core/view/DemandFormPanel.js"></script>
     <script src="js/core/view/ArticleFormPanel.js"></script>
+    <script src="js/core/view/TagFormPanel.js"></script>
     <script src="js/core/view/UserBar.js"></script>
     <script src="js/customer/view/Home.js"></script>
     <script src="js/customer/view/Demands.js"></script>
@@ -60,6 +72,9 @@
     <script src="js/customer/view/Articles.js"></script>
     <script src="js/customer/view/MyCompany.js"></script>
     <script src="js/customer/view/MyProfile.js"></script>
+    <script src="js/customer/view/Contacts.js"></script>
+    <script src="js/customer/view/Groups.js"></script>
+    <script src="js/customer/view/Tags.js"></script>
 
 
     <script src="js/customer.js"></script>
@@ -74,7 +89,8 @@
 				<h3><a href="#home" class="logo">Home</a></h3>
 				<ul>
 					<li><a href="#demands">Mes demandes</a></li>
-                    <li><a href="#sellers">Mes collaborateurs</a></li>
+                    <li><a href="#contacts">Mes contacts</a></li>
+                    <li><a href="#tags">Gestion des Tags</a></li>
 				</ul>
 
                 <ul class="nav secondary-nav"></ul>

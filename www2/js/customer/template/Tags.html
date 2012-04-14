@@ -1,0 +1,40 @@
+<div class="col33-65">
+	<div class="col33p">
+		<a href="#" class="add-tag btn primary fl-r">Ajouter un tag</a>
+		<h3>Gestion des tags</h3>
+		<div class="hr clr br"></div>
+		<br />
+		<table class="zebra-striped bordered-table">
+			<thead>
+				<tr>
+					<th class="txt-r">n°</th>
+					<th>Label</th>
+					<th> </th>	
+				</tr>	
+			</thead>
+			<tbody>
+				<% this.collection.each(function(tag){ %>
+				<tr>
+					<th width="20" class="txt-r">
+						<%= tag.id %> 
+					</th>
+					<td>
+						<span class="label <%= tag.get('css_class')%>"><%= tag.get('label') %></span>
+					</td>
+					<td width="30">
+						<a class="delete" title="supprimer" href="#<%= tag.id %>"><img src="img/icon/round_delete_icon&16.png"></a>
+					</td>
+				</tr>
+				<% }); %>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="3" class="txt-r">
+						<i><%= this.collection.size() %> tag(s)</i>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+		<br />
+	</div>
+</div>

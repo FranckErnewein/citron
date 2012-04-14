@@ -15,6 +15,7 @@ class demand extends BaseModel implements IModel{
     public $x;
     public $y;
 
+
     public function __construct( $data=null ){
 
         $this->id = new Id();
@@ -29,8 +30,6 @@ class demand extends BaseModel implements IModel{
         $this->city_code = new String();
         $this->x = new Int(0,1000);
         $this->y = new Int(0,1000);
-
-
 
 		$this->set( $data );
 

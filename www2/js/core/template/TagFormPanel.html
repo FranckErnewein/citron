@@ -1,0 +1,39 @@
+<div class="bg-modal bg-modal-close"></div>
+<form class="stacked-form">
+    <div class="modal">
+      <div class="modal-header">
+        <a href="#" class="close">x</a>
+        <h3>
+            <%= (this.model.isNew())? "Nouvelle tag" : "Tag n° " + this.model.id %></h3>
+      </div>
+      <div class="modal-body">
+
+        <fieldset>
+          <div class="clearfix">
+            <label>Label</label>
+            <div class="input">
+              <input class="xlarge field" name="label" size="30" type="text" value="<%= this.model.get('label') %>" />
+            </div>
+          </div>
+          <div class="clearfix">
+            <label>Couleur</label>
+            <div class="input">
+              <select name="css_class" class="field">
+                  <option value="success">Vert</option>
+                  <option value="warning">Jaune</option>
+                  <option value="important">Rouge</option>
+                  <option value="notice">Bleu</option>
+              </select>
+            </div>
+          </div>
+          
+        </fieldset>
+        
+      </div>
+
+      <div class="modal-footer">
+        <input type="submit" class="btn primary" value="<%= (this.model.isNew())? 'Ajouter' : 'Enregistrer' %>"/>
+        <a href="#demands/<%= this.model.id %>" class="btn cancel">Annuler</a>
+      </div>
+    </div>
+</form>

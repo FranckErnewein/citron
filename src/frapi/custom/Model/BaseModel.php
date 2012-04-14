@@ -43,6 +43,8 @@ abstract class BaseModel {
 
    }
 
+  
+
    public function set($field, $value=null){
 
        
@@ -93,6 +95,9 @@ interface IModel{
 
 
 }
+
+
+
 
 define('BAD_TYPE', 'BAD_TYPE');
 

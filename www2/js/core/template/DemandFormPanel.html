@@ -29,31 +29,23 @@
               <input class="mini field" name="city_code" size="16" type="text" value="<%= this.model.get('city_code') %>" />
             </div>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend>Tags</legend>
+        
           <div class="clearfix">
-            <label>Tags associés</label>
+            <label>Tags</label>
             <div class="input">
-              <ul class="inputs-list">
+              <ul class="inputs-list tag-list checkbox-3cols">
                   <% this.collection.each(function(tag, i){ %>
                   <li>
                       <label>
                           <input type="checkbox" name="tags" value="<%= tag.id %>" />
-                          <span><%= tag.escape('label') %></span>
+                          <span class="label <%= tag.escape('css_class') %>"><%= tag.escape('label') %></span>
                       </label>
                   </li>
                   <% }); %>
+                  <li><a href="#" id="add_tag"><img src="img/icon/round_plus_icon&16.png" height="12" /> ajouter un tag</a></li>
               </ul>
             </div>
           </div>
-          <div class="clearfix" id="add_new_tag">
-            <label>Nouveau tag</label>
-            <div class="input">
-              <input class="span3 field" name="city" size="16" type="text"  /> <a href="#"><img src="img/icon/round_plus_icon&16.png"/></a>
-            </div>
-          </div>
-
         </fieldset>
       </div>
 

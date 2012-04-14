@@ -1,7 +1,9 @@
 <?php
 
-include "/Applications/MAMP/htdocs/citron/src/frapi/custom/Model/ModelManager.php";
-include "/Applications/MAMP/htdocs/citron/config.php";
+//print_r($_SERVER);
+
+include '../../../config.php';
+include APP_PATH . "src/frapi/custom/Model/ModelManager.php";
 
 // If you remove this. You might die.
 define('FRAPI_CACHE_ADAPTER', 'apc');

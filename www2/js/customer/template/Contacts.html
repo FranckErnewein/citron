@@ -1,0 +1,21 @@
+<div class="cols33-65">
+    <div class="col33p" id="demands-list">
+        <a href="#" class="btn primary fl-r add-contact">Trouver un contact</a>
+		<h3>Liste de vos contacts</h3>
+        <div class="clr br"></div>
+        <div class="hr br"></div>
+        <div id="contact-list">
+            <ul>
+
+                <% this.collection.each(function( contact ){ %>
+                    <li>
+                        <a href="#contact-<%= contact.id %>"><%= contact.get('name') %></a>
+
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    <div class="col65p" id="groups"></div>
+    <div class="clr"></div>
+</div>

@@ -11,7 +11,7 @@ core.model.BaseModel = Backbone.Model.extend({
             _.each(this.uriParams, function( param , key ){
                 uri = uri.replace( ':'+key, param );
             });
-            url = 'http://'+document.location.hostname+':8888/api/' + uri;
+            url = CONFIG.apiRoot + uri;
         }
 
         if(this.id){

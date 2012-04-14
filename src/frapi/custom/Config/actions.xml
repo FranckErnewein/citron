@@ -135,10 +135,75 @@
    <name>Company_id_tags</name>
    <enabled>1</enabled>
    <public>1</public>
-   <description></description>
    <route>api/company/:company_id/tags</route>
-   <parameters></parameters>
    <hash>ae7f1ccb476d68cf45130fb0d3aad757f84f1ec7</hash>
+  </action>
+  <action>
+   <name>Company_id_demands_id_tags</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description>Add tag on a demand, get the list of the tags</description>
+   <route>api/company/:company_id/demands/:demand_id/tags</route>
+   <hash>bc906939dac81d37671695d5faa15eff0363df5f</hash>
+  </action>
+  <action>
+   <name>Company_id_demands_id_tags_id</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description>Delete or edit a tag</description>
+   <route>api/company/:company_id/demands/:demand_id/tags/:tag_id</route>
+   <hash>3483c939552082b006795559010aa90dcd8dc98f</hash>
+  </action>
+  <action>
+   <name>Admin_table</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/admin/:table_name</route>
+   <hash>9fbf115315d7ed100726464811cde677837f9389</hash>
+  </action>
+  <action>
+   <name>Admin_table_id</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/admin/:table_name/:id</route>
+   <hash>8ea78c73a27960f84ff98f9a3244f023d6146a3d</hash>
+  </action>
+  <action>
+   <name>Company_id_contacts</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/company/:company_id/contacts</route>
+   <hash>35d96bbd0641fafc6b1763192fdc797cfce3c3fa</hash>
+  </action>
+  <action>
+   <name>Company_id_groups</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/company/:company_id/groups</route>
+   <hash>3589626408c37bc70e8624ec59c22f30ee623432</hash>
+  </action>
+  <action>
+   <name>Company_id_groups_id</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/company/:company_id/groups/:group_id</route>
+   <hash>42f0ac175c05b30fe5dd6c3c5cd5412033e940d8</hash>
+  </action>
+  <action>
+   <name>Company_id_relations_group_contact</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <route>api/company/:company_id/relations/groups-contacts</route>
+   <hash>e7109a1ebfa060116c7526488d2b8b1b809801e4</hash>
+  </action>
+  <action>
+   <name>Test_01</name>
+   <enabled>1</enabled>
+   <public>1</public>
+   <description></description>
+   <route>test_01/</route>
+   <parameters></parameters>
+   <hash>d414a0962531bdc9b7ba368f03e13bcdd9633348</hash>
   </action>
  </actions>
 </frapi-config>

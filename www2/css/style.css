@@ -16,6 +16,9 @@ table tfoot td{border-top:1px solid #ddd;}
 .col65p{width:63%;float:right;}
 .col33p,.col65p, .box-content{background:#fff;padding:1%;box-shadow:0 0 8px rgba(0,0,0,0.1);}
 
+.checkbox-3cols li{display:inline-block;width:30%}
+.checkbox-4cols li{display:inline-block;width:23%}
+
 /* utils */
 .clr{clear:both;}
 .fl-r{float:right;}
@@ -38,6 +41,7 @@ table tfoot td{border-top:1px solid #ddd;}
 .demand-search-item a:hover{background:url(../img/icon/br_next_icon&16.png) no-repeat right center;}
 .demand-search-item.current a, .demand-search-item a:focus{background:rgba(0,0,0,0.03) url(../img/icon/br_next_icon&16.png) no-repeat right center;}
 
+.group{width:45%;border:3px dashed #ccc;border-radius:10px;float:left;margin:2%;}
 
 .page{margin-top:50px;}
 

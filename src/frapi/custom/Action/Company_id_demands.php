@@ -63,9 +63,12 @@ class Action_Company_id_demands extends Frapi_Action implements Frapi_Action_Int
         $manager = new ModelManager('demand');
         $this->data = $manager->read( array(
             'clause' => array(
-                'company_id' => $this->user['company_id'] )
-            )
-        );
+                'company_id' => $this->user['company_id']
+            )//,
+            //'relation' => array('demand_x_tag' , 'tag_id')
+        ));
+
+
         return $this->toArray();
     }
 

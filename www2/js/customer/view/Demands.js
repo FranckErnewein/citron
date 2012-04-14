@@ -33,7 +33,6 @@ customer.view.Demands = core.view.BaseView.extend({
                'user_id':app.model.user.id,
                'company_id':app.model.user.get('company_id')
             });
-            newDemand.setUriParam('company_id', app.model.user.get('company_id'));
 
             newDemand.bind('ajax:success', function(model, method){
                 if(method == 'create'){

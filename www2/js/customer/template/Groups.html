@@ -1,0 +1,16 @@
+<div>
+    <% this.collection.each( function( group ){ %>
+        <div class="group">
+            <h5 class="txt-c"><%= group.get('name') %></h5>
+            <div class="hr"></div>
+            <br />
+            <ul>
+                <li><a href="#">Ajouter un contact a "<%= group.get('name') %>"</a></li>
+            </ul>
+        </div>
+    <% }); %>
+    <div class="clr hr br"></div>
+    <p class="txt-r">
+        <a href="#" class="btn primary">Ajouter un groupe</a>
+    </p>
+</div>
