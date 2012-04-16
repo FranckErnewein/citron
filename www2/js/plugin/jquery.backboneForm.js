@@ -53,8 +53,12 @@
 					data[this.name] = this.value;
 				});
 
-				model.set( data ).save();
+				model.set( data ).save().done( disable );
 				return false;
+			});
+
+			model.bind('change', function(){
+				setFields();
 			});
 			
 

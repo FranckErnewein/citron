@@ -15,7 +15,6 @@ core.view.ModelForm = core.view.BaseView.extend({
     onRender:function(){
 
 			
-		$('.my-company-form').backboneForm( this.model );
     }
 
 })

@@ -4,12 +4,16 @@ if(document.location.hostname == 'localhost'){
 
     CONFIG.apiRoot = 'http://localhost:8888/api/'
 
-}else{
+}else if( document.location.href.indexOf('8888')){
 
+	/*
     CONFIG.apiRoot = 'http://'+document.location.hostname+'/api/'
 	if(document.location.hostname.toString().indexOf('192.168')>-1)
+	*/
     CONFIG.apiRoot = 'http://'+document.location.hostname+':8888/api/'
 
+}else{
+	
 }
 
 
